@@ -1,0 +1,15 @@
+.header{
+    display: flex; background-color: white;
+    
+    justify-content: space-around;
+}
+
+.main{
+    display: flex; background-color:white;
+    text-align: center;
+}
+
+.image{
+    display: flex;
+    margin: auto;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./login.css">
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./login.js"> </script>
+</head>
+<body>
+
+    <div id = "header">
+        <h2>
+            로그인 기능 구현
+        </h2>
+        <a href="http://www.naver.com" style="width: 60px; height: 60px; background-color: brown;">새로고침</a>
+    </div>
+    
+    <div class="main">
+        <div class="text">
+            인기글
+            <div>
+                <a href="./text.html" style="width: 60px; height: 50px; background-color:burlywood;">전체글보기</a>
+            </div>
+        </div>
+        <div class="login">
+            <div class="loginValue">
+                <div>
+                    I D: <input type="text" id="id" onkeyup="enterkey()">
+                </div>
+                <div>
+                    PW: <input type="text" id="pw" onkeyup="enterkey()">
+                </div >
+            </div>
+            <div>
+                <input type="button" value ="로그인" style="width:60px; height: 50px;" onclick="clickEvent()">
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="footer">
+        만든사람 주소 등등
+    </div>
+    </body>
+</html>
