@@ -23,3 +23,4 @@ function clickEvent(){
         console.log("에러 발생 :", error);
     });
 }
+

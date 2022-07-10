@@ -1,3 +1,4 @@
+
 function enterkey() {
 	if (window.event.keyCode == 13) {
     	clickEvent();
@@ -5,7 +6,7 @@ function enterkey() {
 }
 
 
-function clickEvent(){
+function loginEvent(){
     const id =document.getElementById('id').value;
     const pw =document.getElementById('pw').value;
 
@@ -13,25 +14,44 @@ function clickEvent(){
         id : id,
         pw : pw
     }).then((res)=>{
-        if(res.data==='failid'){
+        console.log(res.data)
+        const userInfo = res.data.data
+        
+        if(res.data.data==='idFailed'){
             clearValue();
             alert('아이디 잘못');
             return;
-        }
-        if(res.data === 'failpw') {
+        }if(res.data.data === 'pwFailed') {
             clearValue();
             alert('패스워드 잘못');
             return;
-        }
-        if(res.data === 'success') {
+        }else{
             alert('로그인 성공');
             clearValue();
+            
+            loginSucces()
             return;
         }
     })
     .catch((error)=>{
         console.log("에러 발생 :", error);
     });
+}
+
+function logOut(){
+    const div = document.getElementById('login')
+    const new_div = document.getElementById('loginStatus')
+    console.log(div)
+    div.style.visibility = 'visible';
+    new_div.style.visibility = 'hidden';
+}
+
+function loginSucces(){
+    const div = document.getElementById('login')
+    const new_div = document.getElementById('loginStatus')
+    console.log(div)
+    div.style.visibility = 'hidden';
+    new_div.style.visibility = 'visible';
 }
 
 const clearValue = ()=> {

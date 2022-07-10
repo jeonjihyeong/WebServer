@@ -21,7 +21,7 @@ app.use(cors());
 app.post('/signup',async(req,res)=>{
   const data= req.body;
   const duplicateCheck= await service.getUserId(data.id);
-  console.log(duplicateCheck)
+  const userInfo = duplicateCheck.body
   if (duplicateCheck!==null){
     console.log('id가 이미 존재합니다.');
     res.send({data: 0})
@@ -43,14 +43,15 @@ app.post('/signup',async(req,res)=>{
 app.post('/login', async(req, res) => {
   const data=req.body;
   const idData=await service.getUserId(data.id);
+  
   if (idData===null){
-    res.send ({data: 'not exist'})
+    res.send ({data: 'idFailed'})
   }else {
       const pwData=idData.dataValues.pw
       if(data.pw!==pwData){
-          res.send({data: 'wrong password'})
+          res.send({data: 'pwFailed'})
       }else {
-          res.send({data: 1});
+          res.send({data: idData.dataValues});
       }
   }
 })
