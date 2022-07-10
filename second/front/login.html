@@ -22,7 +22,7 @@
                 <a href="./text.html" style="width: 60px; height: 50px; background-color:burlywood;">전체글보기</a>
             </div>
         </div>
-        <div class="login">
+        <div id="login">
             <div class="loginValue">
                 <div>
                     I D: <input type="text" id="id" onkeyup="enterkey()">
@@ -32,8 +32,12 @@
                 </div >
             </div>
             <div>
-                <input type="button" value ="로그인" style="width:60px; height: 50px;" onclick="clickEvent()">
+                <input type="button" value ="로그인" style="width:60px; height: 50px;" onclick="loginEvent()">
             </div>
+        </div>
+        <div id = "loginStatus" style="visibility: hidden;">
+            <input type="button" value = "로그아웃" onclick="logOut()"> 
+            <a href="userInfo.html">개인정보</a>
         </div>
     </div>
     

@@ -12,7 +12,7 @@
 
 }
 
-.login{
+#login{
     width: 300px; height: 100px; background-color: rgb(247, 209, 138);
     display:flex;
 }
