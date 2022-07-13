@@ -1,11 +1,12 @@
 const user = require('./user');
+const board = require('./board');
 const modelList = [
-    'user'
+    'user','board'
 ]
 
 module.exports = {
     modelDefines : {
-        user
+        user, board
     },
     modelList
 }
