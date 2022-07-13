@@ -1,39 +1,44 @@
 const {DataTypes, Sequelize} = require('sequelize');
 
 const create = async (sequelize) => {
-    const userTable = await sequelize.define('user', {
+    const boardTable = await sequelize.define('board', {
         // Model attributes are defined here
-        userIdx: {
+        boardIdx: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        id: {
-            type: DataTypes.STRING
-            // allowNull defaults to true
+        userIdx: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'userIdx',
+            }
         },
-        pw: {
-            type: DataTypes.STRING
-        },
-        age: {
-            type: DataTypes.INTEGER
-        },
-        name: {
+        subject: {
             type: DataTypes.STRING
         },
+        content: {
+            type: DataTypes.STRING
+        },
+        created: {
+            type: DataTypes.DATE,
+            defalutValue: sequelize.literal('now()')
+        },
+        
     }, {
         // Other model options go here   timestamps: false,
         freezeTableName: true,
         timestamps: false,
     });
 
-    userTable.associate = function (models) {
-        userTable.hasMany(models.board, 
+    boardTable.associate = function (models) {
+        boardTable.belongsTo(models.user, 
             {foreignKey: 'userIdx',
         });
     };
 
-    return userTable;
+    return boardTable;
 }
 module.exports = create;  

@@ -21,7 +21,6 @@ const getUserId=async(id)=>{
         results = await models['user'].findOne({
             where:{
                 id : id
-
             }
         })
     }catch(err){
