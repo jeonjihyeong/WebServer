@@ -20,7 +20,6 @@ function loginEvent(){
         pw : pw
     }).then((res)=>{
         console.log(res.data)
-        const userInfo = res.data.data
         
         if(res.data.data==='idFailed'){
             clearValue();

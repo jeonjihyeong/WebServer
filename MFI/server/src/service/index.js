@@ -1,4 +1,4 @@
-const {models, Op}=require('../db')
+const {models, Op}=require('../lib/db')
 
 const saveUser=async(id, pw)=>{
     let result;
