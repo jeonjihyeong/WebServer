@@ -1,5 +1,5 @@
 const user = require('./user');
-const test = require('./test');
+const test = require('./board');
 
 const modelList = [
     'user','test'
