@@ -28,12 +28,11 @@ const login = async(req, res) => {
 const signup = async(req,res)=>{
     const data= req.body;
     const duplicateCheck= await service.getUserId(data.id);
-    const userInfo = duplicateCheck.body
     if (duplicateCheck!==null){
       console.log('id가 이미 존재합니다.');
       res.send({data: 0})
     }else{
-      const result = await service.saveUser(data.id,data.pw,data.age,data.name);
+      const result = await service.saveUser(data.id,data.pw,data.age,data.email,data.name,data.nickname);
       console.log(result);
       res.send({data: 1})
     }
