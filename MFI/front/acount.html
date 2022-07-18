@@ -4,27 +4,33 @@
     <link rel="stylesheet" href="./login.css">
     <meta charset="utf-8">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./login.js"> </script>
+    <script src="./acount.js"> </script>
     </head>
     <body>
         <div id="main">
             <div  id ="input">
                 <div>
                     <div>
-                        <input type="text" id="id" onkeyup="enterkey()">
+                        <input type="text" id="id">
                     </div>
                     <div>
-                        <input type="text" id="pw" onkeyup="enterkey()">
+                        <input type="text" id="pw">
+                    </div>
+                    <div>
+                        <input type="text" id="age">
+                    </div>
+                    <div>
+                        <input type="text" id="email">
+                    </div>
+                    <div>
+                        <input type="text" id="name">
+                    </div>
+                    <div>
+                        <input type="text" id="nickname">
                     </div>
                 </div>
-                <div onclick="clickEvent()">
-                    <input type="button" value="로그인" style="height: 50px;">
-                </div>
-            </div>
-            <div>
-                <div>
-                    <a href="./acount.html">회원가입</a>
-                    <a href="./find.html">아이디/비밀번호찾기</a>
+                <div onclick="acountEvent()">
+                    <input type="button" value="회원가입" style="height: 50px;">
                 </div>
             </div>
         </div>    

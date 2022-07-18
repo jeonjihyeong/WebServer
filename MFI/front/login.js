@@ -35,7 +35,6 @@ function clickEvent(){
         localStorage.setItem('accessToken',res.data.data)
         clearValue();
         location.href='home.html'
-        // loginSucces();
         return;
     }
 
