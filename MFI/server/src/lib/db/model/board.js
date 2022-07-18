@@ -1,7 +1,7 @@
 const {DataTypes, Sequelize} = require('sequelize');
 
 const create = async (sequelize) => {
-    const userTable = await sequelize.define('test', {
+    const boardTable = await sequelize.define('board', {
         // Model attributes are defined here
         boardIdx: {
             type: DataTypes.INTEGER,
@@ -10,8 +10,11 @@ const create = async (sequelize) => {
             autoIncrement: true
         },
         userIdx: {
-            type: DataTypes.INTEGER
-            // allowNull defaults to true
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'userIdx',
+            }
         },
         title: {
             type: DataTypes.STRING
@@ -20,10 +23,8 @@ const create = async (sequelize) => {
             type: DataTypes.STRING
         },
         created: {
-            type: DataTypes.INTEGER
-        },
-        age: {
-            type: DataTypes.INTEGER
+            type: DataTypes.DATE,
+            defalutValue: sequelize.literal('now()')
         },
     }, {
         // Other model options go here   timestamps: false,
@@ -31,12 +32,12 @@ const create = async (sequelize) => {
         timestamps: false,
     });
 
-    userTable.associate = function (models) {
-        // userTable.hasMany(models.idea, 
-        //     {foreignKey: 'userIdx',
-        // });
+    boardTable.associate = function (models) {
+        boardTable.hasMany(models.user, 
+            {foreignKey: 'userIdx',
+        });
     };
 
-    return userTable;
+    return boardTable;
 }
 module.exports = create;  

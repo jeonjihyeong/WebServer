@@ -1,3 +1,5 @@
 const middleWare = require('./common/middleware')
-
-module.exports= middleWare
+const db = require('./db')
+module.exports={
+    middleWare,db
+}

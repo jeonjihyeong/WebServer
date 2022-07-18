@@ -16,6 +16,18 @@ const create = async (sequelize) => {
         pw: {
             type: DataTypes.STRING
         },
+        age: {
+            type: DataTypes.INTEGER
+        },
+        email: {
+            type: DataTypes.STRING
+        },
+        name: {
+            type: DataTypes.STRING
+        },
+        nickname: {
+            type: DataTypes.STRING
+        },
     }, {
         // Other model options go here   timestamps: false,
         freezeTableName: true,
@@ -23,9 +35,9 @@ const create = async (sequelize) => {
     });
 
     userTable.associate = function (models) {
-        // userTable.hasMany(models.idea, 
-        //     {foreignKey: 'userIdx',
-        // });
+        userTable.hasMany(models.board, 
+            {foreignKey: 'userIdx',
+        });
     };
 
     return userTable;

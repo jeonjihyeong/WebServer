@@ -34,6 +34,7 @@ function clickEvent(){
         alert('로그인 성공');
         localStorage.setItem('accessToken',res.data.data)
         clearValue();
+        location.href='home.html'
         // loginSucces();
         return;
     }
@@ -47,4 +48,6 @@ const clearValue = ()=> {
     document.getElementById("id").value='';
     document.getElementById("pw").value='';
 }
+
+
 

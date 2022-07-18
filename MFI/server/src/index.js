@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 const cors = require('cors');
 const bodyParser = require('body-parser')
-const db= require('./lib/db')
+const {db}= require('./lib')
 const router = require('./router')
 
 app.use(bodyParser.json())
