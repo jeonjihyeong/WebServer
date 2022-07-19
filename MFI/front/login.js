@@ -32,9 +32,10 @@ function clickEvent(){
             return;
     }else{
         alert('로그인 성공');
+        location.href='home.html'
+        console.log(res.data.data)
         localStorage.setItem('accessToken',res.data.data)
         clearValue();
-        location.href='home.html'
         return;
     }
 
