@@ -4,5 +4,5 @@ const board  = require('./board')
 
 
 module.exports ={
-    anonymous
+    anonymous, board
 }
