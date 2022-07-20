@@ -4,10 +4,11 @@ window.onload =()=>{
         loginSucces();
     }
 }
+
 const loginSucces = ()=>{
     const loginButton=document.getElementById('login')
     loginButton.innerHTML='로그아웃';
-    loginButton.onclick=logout();
+    loginButton.onclick=logout;
 }
 
 const logout=()=>{
