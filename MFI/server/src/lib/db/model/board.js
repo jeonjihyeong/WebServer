@@ -33,7 +33,7 @@ const create = async (sequelize) => {
     });
 
     boardTable.associate = function (models) {
-        boardTable.hasMany(models.user, 
+        boardTable.belongsTo(models.user, 
             {foreignKey: 'userIdx',
         });
     };
