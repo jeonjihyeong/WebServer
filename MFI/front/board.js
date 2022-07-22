@@ -1,20 +1,27 @@
-window.onload=()=>{
-    const token = localStorage.getItem('accessToken')
-}
 const token = localStorage.getItem('accessToken')
 
-function writeBoard(){
+const writeBoard= async()=>{
+    let res;
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
-    axios.post("http://localhost:3000/board/write",{
-        token: token,
-        title: title,
-        content: content
-    }).then((res)=>{
+    try{
+        res = await axios.post('http://localhost:3000/board/write',{
+            title: title,
+            content: content
+        },
+        {
+            headers: {
+                Authorization: token
+            }
+        });
         console.log(res)
-        return
-
-    }).catch((error)=>{
-        console.log("에러발생:",error);
-    })
+    }catch(err){
+        console.log(err)
+        return;
+    }
+    return res;
 }
+    
+    
+
+
