@@ -6,7 +6,7 @@ const boardRouter = require(('./board'));
 
 
 basicRouter.use('/',anonymousRouter)
-basicRouter.use('/board',boardRouter)
+basicRouter.use('/board',middleware.validateToken,boardRouter)
 
 
 

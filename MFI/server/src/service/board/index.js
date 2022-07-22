@@ -1,10 +1,10 @@
 const {models, Op}= require('../../lib/db')
 
-const writeBoard=async(userIdx,title, content)=>{
+const writeBoard=async(title, content)=>{
     let result;
     try{
         result = await models['board'].create({
-            userIdx: userIdx,
+            userIdx: 1,
             title: title,
             content: content,
         })
