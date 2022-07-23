@@ -11,7 +11,7 @@ const writeBoard= async()=>{
         },
         {
             headers: {
-                Authorization: token
+                authorization: token
             }
         });
         console.log(res)

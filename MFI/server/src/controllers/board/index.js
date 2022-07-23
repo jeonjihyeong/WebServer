@@ -4,14 +4,12 @@ const jwt = require('jsonwebtoken')
 
 
 const write = async(req,res)=>{
-    const userIdnumber =req.writeUser
-
-
-getData()
     console.log("컨트롤러 동작");
-    console.log(userIdnumber)
+    const dataValue = req.body;
     try{
-        boardService.writeBoard(req.body.title,req.body.content)
+        console.log(req.writeUser)
+        const result = await boardService.writeBoard(dataValue.title,dataValue.content)
+        console.log(result)
         res.send({data: 'success'})
     }catch(err){
         console.err()
