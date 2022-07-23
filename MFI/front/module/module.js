@@ -1,19 +1,21 @@
 
-window.onload =()=>{
+const loginStatus = ()=>{
+    window.onload =()=>{
     const token = localStorage.getItem('accessToken')
     if(token){
         loginSucces();
     }
 }
 
-const loginSucces = ()=>{
+    const loginSucces = ()=>{
     const loginButton=document.getElementById('login')
     loginButton.innerHTML='로그아웃';
     loginButton.onclick=logout;
-}
+    }
 
-const logout=()=>{
+    const logout=()=>{
     localStorage.removeItem('accessToken');
+    }
 }
 loginStatus()
 

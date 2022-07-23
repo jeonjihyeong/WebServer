@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="./boardList.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./boardList.js"> </script>
+    </head>
+    <body>
+        <div class="header">
+            <a href="home.html"><img src="./MFIPNG/MFI 로고 수정본.png" width="220px" >
+                </a>
+            <a href="./title.html"><div class =introduce>MFI 소개</div>
+                </a>
+            <a href="./board.html"><div id =board>분석글</div>
+                </a>
+            <a href="./notice.html"><div id =notice>공지</div>
+                </a>
+            <a href="./news.html"><div id =news>증권 뉴스</div>
+                </a>
+            <button><a href="./info.html"><div id =info>내 정보</div>
+                </a></button>
+                <button><div id =login><a href="./login.html">로그인
+            </a></div></button>
+        </div>
+        <div class="main">
+            <div class="board">
+                <div id = "board">
+                    <table id = "boardTable">
+                        <tr>
+                            <th><h2>제목</h2></th>
+                            <th><h2>내용</h2></th>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td>내용</td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td>내용</td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td>내용</td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td>내용</td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td>내용</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    
+                </div>
+                <div>
+                    <input type="button" value ="작성" onclick="writeBoard()">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

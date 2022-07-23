@@ -1,4 +1,6 @@
+import {loginStatus} from './home.js'
 const token = localStorage.getItem('accessToken')
+loginStatus;
 
 const writeBoard= async()=>{
     let res;
@@ -14,7 +16,7 @@ const writeBoard= async()=>{
                 authorization: token
             }
         });
-        console.log(res)
+
     }catch(err){
         console.log(err)
         return;

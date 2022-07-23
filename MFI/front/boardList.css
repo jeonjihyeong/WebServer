@@ -1,0 +1,25 @@
+.header{
+    display: flex; background-color: white;
+    
+    justify-content: space-around;
+}
+
+.main{
+    display: flex; background-color:white;
+    text-align: center;
+}
+
+.image{
+    display: flex;
+    margin: auto;
+}
+
+#boardTable{
+    background-color: black; color: white;
+    margin-left: auto;
+}
+
+.board{
+    display: flex;
+    margin-right: auto;
+}

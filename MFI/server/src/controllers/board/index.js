@@ -7,8 +7,8 @@ const write = async(req,res)=>{
     console.log("컨트롤러 동작");
     const dataValue = req.body;
     try{
-        console.log(req.writeUser)
-        const result = await boardService.writeBoard(dataValue.title,dataValue.content)
+        console.log(req.writeUser.userIdx)
+        const result = await boardService.writeBoard(req.writeUser.userIdx,dataValue.title,dataValue.content)
         console.log(result)
         res.send({data: 'success'})
     }catch(err){
@@ -16,6 +16,10 @@ const write = async(req,res)=>{
     }
 }
 
+const postingBoard = async(req,res)=>{
+    console.log("controller working")
+}
+
 module.exports={
-    write,
+    write, postingBoard
 }
