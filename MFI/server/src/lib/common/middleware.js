@@ -11,7 +11,7 @@ const validateToken = async(req,res,next)=>{
             return;
         }
         else{
-            const writeUserInfo =token.decodeToken(accessToken);
+            const writeUserInfo =await token.decodeToken(accessToken);
             req.writeUser = writeUserInfo;
             console.log(req.writeUser)
             return next();
