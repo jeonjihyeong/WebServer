@@ -1,25 +1,70 @@
 .header{
     display: flex; background-color: white;
-    
     justify-content: space-around;
 }
 
 .main{
-    display: flex; background-color:white;
-    text-align: center;
+    margin: auto;
+    margin-top: 100px;
 }
 
-.image{
-    display: flex;
+.topTitle{
+    width: 60%;
     margin: auto;
 }
 
-#boardTable{
-    background-color: black; color: white;
-    margin-left: auto;
+.title{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.write{
+    margin-right: auto;
 }
 
 .board{
-    display: flex;
+    width:60%;
+    border-top: 2px solid navy;
+    margin: auto;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+
+a{
+    text-decoration: none; 
+    color: inherit;
+}
+
+.boardTable tr {
+    border-bottom:1px solid #ccc;
+}
+
+.boardTable th,
+.boardTable td{
+    padding : 10px;
+
+}
+
+.boardTable{
+    margin: auto;
+    width: 100%;
     margin-right: auto;
 }
+
+
+
+
+.paging{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 10px
+}
+
+.boardTable tbody tr td:nth-child(2) {
+    text-align: left;
+}
+

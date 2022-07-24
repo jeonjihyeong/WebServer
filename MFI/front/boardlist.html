@@ -13,54 +13,77 @@
                 </a>
             <a href="./title.html"><div class =introduce>MFI 소개</div>
                 </a>
-            <a href="./board.html"><div id =board>분석글</div>
+            <a href="./boardList.html"><div id =board>분석글</div>
                 </a>
             <a href="./notice.html"><div id =notice>공지</div>
                 </a>
             <a href="./news.html"><div id =news>증권 뉴스</div>
                 </a>
-            <button><a href="./info.html"><div id =info>내 정보</div>
+                <button><a href="./info.html"><div id =info>내 정보</div>
                 </a></button>
                 <button><div id =login><a href="./login.html">로그인
-            </a></div></button>
-        </div>
-        <div class="main">
-            <div class="board">
-                <div id = "board">
-                    <table id = "boardTable">
-                        <tr>
-                            <th><h2>제목</h2></th>
-                            <th><h2>내용</h2></th>
-                        </tr>
-                        <tr>
-                            <td>제목</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>제목</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>제목</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>제목</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>제목</td>
-                            <td>내용</td>
-                        </tr>
-                    </table>
-                </div>
-                <div>
-                    
-                </div>
-                <div>
-                    <input type="button" value ="작성" onclick="writeBoard()">
-                </div>
+                </a></div></button>
             </div>
+            <div class="main">
+                <div class="topTitle" >
+                    분석글 보기
+                    <a href=".board.html" clas="write">분석글 작성하기</a>
+                </div>
+            <div class="board">
+                <table class = "boardTable">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>글쓴이</th>
+                            <th>작성일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>삼성전자 주식 분석글 </td>
+                            <td>글쓴이</td>
+                            <td>작성일</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>카카오 올라줘 ㅜㅜ   ㅇㄴㄻㄴㅇㄹ</td>
+                            <td>글쓴이</td>
+                            <td>작성일</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>제목</td>
+                            <td>글쓴이</td>
+                            <td>작성일</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>제목</td>
+                            <td>글쓴이</td>
+                            <td>작성일</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>제목</td>
+                            <td>글쓴이</td>
+                            <td>작성일</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <div class = "paging">
+                    <a href="#"><<</a>
+                    <a href="#"><</a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">></a>
+                    <a href="#">>></a>
+                </div>
+                <div>
+                </div>
         </div>
     </body>
 </html>
