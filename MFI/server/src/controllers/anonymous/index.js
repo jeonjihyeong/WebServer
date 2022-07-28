@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const login = async(req, res) => {
     const data=req.body;
     const idData=await anonymousService.getUserId(data.id);
+    console.log(res.body)
     if (idData===null){
       res.send ({data: 'idFailed'})
     }else {
