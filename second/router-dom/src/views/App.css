@@ -18,10 +18,20 @@ a{
 }
 
 .content{
-    margin-top: auto;
+    vertical-align: middle;
+    margin-top: 40px;
+    height: 750px;
+    text-align: center;
 }
 
 .nav{
     height: 70px;
     margin: auto;
+}
+
+.loginInput{
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    top: 50%;
 }
