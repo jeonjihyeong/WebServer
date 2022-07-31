@@ -4,9 +4,8 @@ const {models, Op}= require('../../lib/db')
 // const Op=db.Op
 
 const saveUser=async(id, pw,age,email,name,nickname)=>{
-    let result;
     try{
-        result = await models['user'].create({
+        await models['user'].create({
             id: id,
             pw: pw,
             age: age,

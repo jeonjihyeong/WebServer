@@ -29,12 +29,15 @@ const signup = async(req,res)=>{
     const data= req.body;
     const duplicateCheck= await anonymousService.getUserId(data.id);
     if (duplicateCheck!==null){
-      console.log('id가 이미 존재합니다.');
-      res.send({data: 0})
+    console.log('id가 이미 존재합니다.');
+    res.send({data: 0})
     }else{
-      const result = await anonymousService.saveUser(data.id,data.pw,data.age,data.email,data.name,data.nickname);
-      console.log(result);
-      res.send({data: 1})
+      try{
+        await anonymousService.saveUser(data.id,data.pw,data.age,data.email,data.name,data.nickname);
+        res.send({data: 1})
+      }catch(err){
+        console.log(err);
+      }
     }
   }
 

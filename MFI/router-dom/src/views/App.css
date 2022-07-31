@@ -3,6 +3,7 @@
     vertical-align: middle;
     justify-content: space-around;
     height: 50px; margin: auto;
+    font-size:28px; font-weight:520;
 }
 
 .app{
@@ -15,6 +16,9 @@
 a{
     text-decoration: none; 
     color: inherit;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
 }
 
 .content{
@@ -27,6 +31,9 @@ a{
 .nav{
     height: 70px;
     margin: auto;
+    color:rgb(143, 149, 231);
+    text-align: 50px;
+    
 }
 
 .loginInput{
@@ -34,4 +41,15 @@ a{
     text-align: center;
     position: relative;
     top: 50%;
+}
+
+.loginButton{
+    background-color: rgb(180, 184, 243);
+    border: none; color: white;
+    width: 70px; height: 30px;
+}
+
+.logintext{
+    color:rgb(76, 71, 121);
+    text-transform: bold;
 }
