@@ -4,6 +4,14 @@ import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Login from './anonymous/login'
 import Nav from './navBar/navBar'
 import Acount from './anonymous/acount';
+import Board from './board/board';
+import Introduce from './notice/introduce';
+import Info from './user/info';
+import News from './board/news';
+import Notice from './notice/notice';
+
+
+
 
 function App() {
   return (
@@ -36,32 +44,10 @@ function Home(){
 }
 
 
-function Introduce(){
-  return (
-    <div>소개글</div>
-    )
-  }
-function Board(){
-  return (
-    <div>분석글</div>
-    )
-  }
-function Notice(){
-  return (
-    <div>공지</div>
-    )
-  }
-function News(){
-  return (
-    <div>증권 뉴스</div>
-    )
-  }
-function Info(){
-  return (
-    <div>개인정보</div>
-    )
-  }
-          
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
-import logo from '../../views/MFI 로고 수정본.png';
-import {BrowserRouter as Router,Route, Switch, NavLink} from 'react-router-dom';
+import logo from '../../views/img/MFI 로고 수정본.png';
+import {NavLink} from 'react-router-dom';
 
 function Nav(props){
     return (
