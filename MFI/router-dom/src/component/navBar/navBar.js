@@ -6,11 +6,11 @@ function Nav(props){
       <div className='nav'>
         <nav className = "navBar">
           <div><NavLink exact to="/" ><img src = {logo} className= "logo"/></NavLink></div>
-          <div><NavLink to="/introduce" >MFI 소개</NavLink></div>
-          <div><NavLink to="/board" >분석글</NavLink></div>
-          <div><NavLink to="/notice" >공지</NavLink></div>
-          <div><NavLink to="/news" >증권 뉴스</NavLink></div>
-          <div><NavLink to="/info" ><button>내정보</button></NavLink></div>
+          <div><NavLink exact to="/introduce" >MFI 소개</NavLink></div>
+          <div><NavLink exact to="/board" >분석글</NavLink></div>
+          <div><NavLink exact to="/notice" >공지</NavLink></div>
+          <div><NavLink exact to="/news" >증권 뉴스</NavLink></div>
+          <div><NavLink exact to="/info" ><button>내정보</button></NavLink></div>
           <div><NavLink to="/login" ><button>로그인</button></NavLink></div>
         </nav> 
       </div>

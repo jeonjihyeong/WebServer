@@ -5,12 +5,48 @@
     height: 50px; margin: auto;
     font-size:28px; font-weight:520;
 }
+.Board{
+    width: 65%;
+    margin:auto;
+    
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    padding : 10px
+}
+.boardTalbe tr{
+    border-bottom: 1px solid black
+}
+.topTitle{
+    font-size: 15px;
+    text-align: left;
+}
+
+.boardTable{
+    margin: auto;
+    width: 100%;
+    border-top: 2px solid rgb(118, 156, 238);
+    font-size:17px;
+}
 
 .app{
     display: inline-block;
 }
 .logo{
     width: 250px;
+}
+.paging{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 10px
+}
+.boardTable tr{
+    border-bottom: 1px solid rgb(195, 200, 243);
 }
 
 a{
@@ -27,6 +63,8 @@ a{
     height: 750px;
     text-align: center;
 }
+
+
 
 .nav{
     height: 70px;
