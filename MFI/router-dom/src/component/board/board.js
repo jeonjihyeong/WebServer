@@ -1,7 +1,10 @@
+// import { useEffect } from "react"
 import { NavLink } from "react-router-dom"
 
 
 const Board = ()=>{
+    // useEffect 매번 렌더링할때마다 시행되기보단 마운트시에만 실행 혹은 의존성 나열해서 특정상황에서만 코드 실행
+    
     return(
         <div className="Board">
             <div className="topTitle">
@@ -16,17 +19,12 @@ const Board = ()=>{
                         <th>글쓴이</th>
                         <th>작성일</th>
                     </tr>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
-                    <BoardList></BoardList>
+                    <BoardList />
+                    <BoardList />
+                    <BoardList />
+                    <BoardList />
+                    <BoardList />
+                    <BoardList />
                 </thead>
             </table>
             <div className="paging">

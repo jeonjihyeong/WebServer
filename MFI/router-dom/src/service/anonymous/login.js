@@ -1,11 +1,6 @@
 import axios from 'axios'
-import Login from '../../component/anonymous/login';
 
-const loginEvent =async()=>{
-    const id = Login.inputId;
-    const pw = Login.inputPw;
-    console.log(Login.inputId,Login.inputPw)
-    console.log (id, pw)
+const loginEvent =async(id,pw)=>{
     axios.post("http://localhost:3000/login",{
         id: id,
         pw: pw

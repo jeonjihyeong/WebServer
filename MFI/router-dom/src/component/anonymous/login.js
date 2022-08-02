@@ -1,7 +1,6 @@
 import {useState} from 'react'
-import axios from 'axios'
 import { NavLink } from 'react-router-dom'
-
+import loginEvent from '../../service/anonymous/login'
 
 function Login(){
 
@@ -14,32 +13,10 @@ function Login(){
   const handlePwOnChange = (e) => {
     setPw(e.target.value)
 }
-  const loginEvent =async()=>{
-    const id = inputId;
-    const pw = inputPw;
-    console.log (id, pw)
-    axios.post("http://localhost:3000/login",{
-        id: id,
-        pw: pw
-    }).then((res)=>{
-      if(res.data.data ==='idFailed'){
-        alert('아이디 잘못');
-        return;
-      }
-      if(res.data.data ==='pwFailed'){
-          alert('패스워드 잘못');
-          return;
-      }else{
-          alert('로그인 성공');
-          console.log(res.data.data)
-          localStorage.setItem('accessToken',res.data.data)
-          document.location.href= '/'
-          return;
-      }
-    }).catch((error)=>{
-        console.log(error)
-    })
-  }
+  const handlelogin = () => {
+    loginEvent(inputId, inputPw)
+}
+
     return (
       <div className='loginInput'>
         <h2 className='logintext'>로그인하기</h2>
@@ -53,7 +30,7 @@ function Login(){
             <NavLink to="/acount">회원가입/</NavLink>
             <NavLink to="/idfind">아이디 찾기/</NavLink>
             <NavLink to="/pwfind">Pw 찾기</NavLink>
-            <input type={"button"} value="로그인" className='loginButton' onClick={loginEvent} ></input>
+            <input type={"button"} value="로그인" className='loginButton' onClick={handlelogin} ></input>
         </nav>
       </div>
     )
