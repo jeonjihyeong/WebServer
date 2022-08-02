@@ -14,10 +14,12 @@ import Notice from './notice/notice';
 
 
 function App() {
+  const loginStatus = localStorage.getItem('accessToken')
+  
   return (
   <Router>
-    <div className="App">
-      <Nav></Nav>
+    < >
+      <Nav login={loginStatus} />
       <div></div>
       <div className = "content">
         <Switch>
@@ -32,7 +34,7 @@ function App() {
           <Route path="/">Not Found</Route>  
         </Switch>
       </div>
-    </div>
+    </>
   </Router>
   );
 }

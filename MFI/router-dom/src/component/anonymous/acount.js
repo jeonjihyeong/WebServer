@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import axios from 'axios'
+import acountEvent from '../../service/anonymous/acount'
+
 
 const Acount=()=>{
     const [acountId,setAcountId]= useState("")
@@ -28,38 +29,9 @@ const Acount=()=>{
         setAcountNickname(e.target.value)
     }
 
-    const acountEvent = async()=>{
-        const id =acountId;
-        const pw = acountPw;
-        const age = acountAge;
-        const email = acountEmail;
-        const name = acountName;
-        const nickname = acountNickname;
-    
-        console.log(id,pw,age,email,nickname);
-    
-        axios.post("http://localhost:3000/signup",{
-            id:id,
-            pw:pw,
-            age:age,
-            email:email,
-            name:name,
-            nickname:nickname,
-        }).then((res)=>{
-            if (res.data.data===0){
-                alert('이미 존재하는 아이디 입니다.');
-                return;
-            }
-            else if(res.data.data===1){
-                alert('회원가입 되셨습니다.');
-                document.location.href='/login'
-                return;
-            }
-        }).catch((error)=>{
-            console.log(error)
-        })
+    const handleAcount=()=>{
+        acountEvent(acountId, acountPw, acountAge, acountEmail, acountName, acountNickname)
     }
-
 
     return (
         <div>
@@ -82,7 +54,7 @@ const Acount=()=>{
             <div>
                 닉 네 임: <input type="text" name="acountNickname" onChange={nicknameChange}></input>
             </div>
-            <input type={"button"} value="회원가입" onClick={acountEvent}></input>
+            <input type={"button"} value="회원가입" onClick={handleAcount}></input>
         </div>
     )
 }
