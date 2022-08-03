@@ -1,5 +1,4 @@
 import '../views/App.css';
-import { useEffect } from "react"
 import React from 'react';
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Login from './anonymous/login'
@@ -16,16 +15,11 @@ import WriteBoard from './board/writeBoard';
 
 
 function App() {
-  const loginStatus = localStorage.getItem('accessToken')
   
   return (
   <Router>
     < >
-      <Nav login={loginStatus}
-      
-      
-      
-       />
+      <Nav />
       <div></div>
       <div className = "content">
         <Switch>
@@ -51,19 +45,6 @@ function Home(){
     <div>홈</div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export default App;
