@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState ,useEffect} from "react"
 
 const Info = ()=>{
-    const [userInfo, setinfo]=useState();
+    const [userInfo, setinfo]=useState([]);
     useEffect(()=>{
         console.log('mount');
         const token = localStorage.getItem('accessToken')
@@ -12,10 +12,8 @@ const Info = ()=>{
         }}).then((res)=>{
             const info = res.data.data
             console.log(info)
-            setinfo =(info)
-            console.log(userInfo)
+            setinfo(info)
         })
-        
         return ()=>{
             console.log('unmount');
         };
@@ -34,19 +32,19 @@ const Info = ()=>{
     
     return(
         <div>
-            <UserInfo name ={userInfo}/>
+            <UserInfo name ={userInfo.name} nickname = {userInfo.nickname} age = {userInfo.age} email = {userInfo.email}/>
         </div>
     )
 }
 
 
-const UserInfo = ({name}) =>{
+const UserInfo = ({name, nickname, age, email}) =>{
     return (
         <>
                 <div>이름: {name}</div>
-                <div>닉네임: </div>
-                <div>나이:</div>
-                <div>E-mail: </div>
+                <div>닉네임: {nickname} </div>
+                <div>나이: {age}</div>
+                <div>E-mail: {email}</div>
         </>
     )
 }
