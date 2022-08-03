@@ -10,25 +10,19 @@ const Info = ()=>{
         headers: {
             authorization: token
         }}).then((res)=>{
-            const info = res.data.data
-            console.log(info)
-            setinfo(info)
+            if(res.data.data==="need Token"){
+                alert("로그인을 해주세요")
+                document.location.href = "/";
+            }else{
+                const info = res.data.data
+                console.log(info)
+                setinfo(info)
+            }
         })
         return ()=>{
             console.log('unmount');
         };
     },[]);
-        
-    // const token = localStorage.getItem('accessToken')
-    // // const [userInfo, setinfo]=useState("");
-    // axios.get("http://localhost:3000/user/info",{
-    //     headers: {
-    //         authorization: token
-    //     }}).then((res)=>{
-    //     })
-        
-    //     console.log(userInfo)
-    
     
     return(
         <div>

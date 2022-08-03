@@ -6,6 +6,7 @@ const validateToken = async(req,res,next)=>{
     console.log(req)
     console.log("미들웨어 동작")
     try{
+        console.log(res.data)
         if(token.verifyToken(accessToken)===null){
             res.send({data : "need Token"})
             return;
