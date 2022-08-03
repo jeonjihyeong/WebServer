@@ -3,7 +3,7 @@ const token = require("./token")
 
 const validateToken = async(req,res,next)=>{
     let accessToken = req.headers.authorization;
-    console.log(accessToken)
+    console.log(req)
     console.log("미들웨어 동작")
     try{
         if(token.verifyToken(accessToken)===null){
