@@ -9,7 +9,7 @@ const Board = ()=>{
         <div className="Board">
             <div className="topTitle">
                 분석글 보기
-                <NavLink to="/writeBoard">분석글 작성하기/</NavLink>
+                <NavLink to="/board/write">분석글 작성하기/</NavLink>
             </div>
             <table className="boardTable">
                 <thead>

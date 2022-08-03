@@ -3,10 +3,12 @@ const middleware = require('../lib/common/middleware')
 const basicRouter= express.Router();
 const anonymousRouter = require(('./anonymous'));
 const boardRouter = require(('./board'));
+const userRouter = require(('./user'));
 
 
 basicRouter.use('/',anonymousRouter)
 basicRouter.use('/board',middleware.validateToken,boardRouter)
+basicRouter.use('/user',middleware.validateToken,userRouter)
 
 
 

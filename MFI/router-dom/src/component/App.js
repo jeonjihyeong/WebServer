@@ -1,4 +1,5 @@
 import '../views/App.css';
+import { useEffect } from "react"
 import React from 'react';
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Login from './anonymous/login'
@@ -9,6 +10,7 @@ import Introduce from './notice/introduce';
 import Info from './user/info';
 import News from './board/news';
 import Notice from './notice/notice';
+import WriteBoard from './board/writeBoard';
 
 
 
@@ -19,12 +21,17 @@ function App() {
   return (
   <Router>
     < >
-      <Nav login={loginStatus} />
+      <Nav login={loginStatus}
+      
+      
+      
+       />
       <div></div>
       <div className = "content">
         <Switch>
           <Route path="/" exact><Home></Home></Route>  
-          <Route path="/board"><Board></Board></Route> 
+          <Route exact path="/board"><Board></Board></Route>
+          <Route path="/board/write"><WriteBoard /></Route>
           <Route path="/notice"><Notice></Notice></Route>
           <Route path="/introduce"><Introduce></Introduce></Route>
           <Route path="/news"><News></News></Route>
