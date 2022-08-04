@@ -11,6 +11,8 @@
 .topTitle{
     width: 60%;
     margin: auto;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 .title{
@@ -19,7 +21,7 @@
 }
 
 .write{
-    margin-right: auto;
+    text-align:end;
 }
 
 .board{
@@ -52,10 +54,8 @@ a{
     margin: auto;
     width: 100%;
     margin-right: auto;
+    text-align: center;
 }
-
-
-
 
 .paging{
     width: 60%;
