@@ -6,7 +6,11 @@ const Info = ()=>{
     useEffect(()=>{
         console.log('mount');
         const token = localStorage.getItem('accessToken')
-        axios.get("http://localhost:3000/user/info",{
+        if (token ===null){
+            alert("먼저 로그인 해주세요")
+            document.location.href = "/"
+        }
+        else{axios.get("http://localhost:3000/user/info",{
         headers: {
             authorization: token
         }}).then((res)=>{
@@ -18,7 +22,7 @@ const Info = ()=>{
                 console.log(info)
                 setinfo(info)
             }
-        })
+        })}
         return ()=>{
             console.log('unmount');
         };

@@ -27,6 +27,7 @@ function Nav(props){
   const Login=({loginStatus})=>{
     const logOut=()=>{
       localStorage.removeItem("accessToken");
+      document.location.href = "/"
     }
     return (
       <>
