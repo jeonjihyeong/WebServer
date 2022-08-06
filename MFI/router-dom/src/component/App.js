@@ -21,7 +21,7 @@ function App() {
     < >
       <Nav />
       <div></div>
-      <div className = "content">
+      <div className = "main">
         <Switch>
           <Route path="/" exact><Home></Home></Route>  
           <Route exact path="/board"><Board></Board></Route>

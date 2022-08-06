@@ -2,13 +2,12 @@
     display: flex; font-size: 22px;
     vertical-align: middle;
     justify-content: space-around;
-    height: 50px; margin: auto;
-    font-size:28px; font-weight:520;
+    height: 100px; margin: auto;
+    font-size:28px; font-weight: 550;
 }
 .Board{
     width: 65%;
     margin:auto;
-    
 }
 
 table{
@@ -54,7 +53,7 @@ a{
     position: relative;
 }
 
-.content{
+.main{
     vertical-align: middle;
     margin-top: 40px;
     height: 750px;
@@ -66,7 +65,8 @@ a{
 .nav{
     height: 70px;
     margin: auto;
-    color:rgb(143, 149, 231);
+    color:#666083;
+    font-weight: bold;
     text-align: 50px;
     
 }
@@ -83,8 +83,28 @@ a{
     border: none; color: white;
     width: 70px; height: 30px;
 }
+.button{
+    background-color: rgb(180, 184, 243);
+    border: none; color: white;
+    width: 70px; height: 30px;
+}
 
 .logintext{
     color:rgb(76, 71, 121);
     text-transform: bold;
+}
+
+.title{
+    width: 80%;
+    height: 40px;
+    font-size: 17px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+}
+
+.content{
+    width: 80%; height:500px;
+    text-align: left;
+    font-size: 17px;
+    border: 2px solid #ccc;
 }
