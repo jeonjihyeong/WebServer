@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState ,useEffect} from "react"
 
 const Info = ()=>{
-    const [userInfo, setinfo]=useState([]);
+    const [userInfo , setinfo]=useState([]);
     useEffect(()=>{
         console.log('mount');
         const token = localStorage.getItem('accessToken')

@@ -6,8 +6,7 @@ const write = async(req,res)=>{
     const dataValue = req.body;
     try{
         console.log(req.writeUser.userIdx)
-        const result = await boardService.writeBoard(req.writeUser.userIdx,dataValue.title,dataValue.content)
-        console.log(result)
+        await boardService.writeBoard(req.writeUser.userIdx,dataValue.title,dataValue.content)
         res.send({data: 'success'})
     }catch(err){
         console.err()
