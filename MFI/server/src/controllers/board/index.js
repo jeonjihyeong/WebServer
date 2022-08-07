@@ -13,10 +13,18 @@ const write = async(req,res)=>{
     }
 }
 
-const postingBoard = async(req,res)=>{
+const get = async(req, res)=>{
     console.log("controller working")
+    let result;
+    try{
+        result = await boardService.getBoard("뭐");
+        console.log(result.title);
+        res.send({result})
+    }catch(err){
+        console.log(err)
+    }
 }
 
 module.exports={
-    write, postingBoard
+    write, get
 }
