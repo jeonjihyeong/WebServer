@@ -1,9 +1,36 @@
-// import { useEffect } from "react"
+import axios from "axios";
+import { useEffect , useState} from "react"
 import { NavLink } from "react-router-dom"
 
 
 const Board = ()=>{
-    // useEffect 매번 렌더링할때마다 시행되기보단 마운트시에만 실행 혹은 의존성 나열해서 특정상황에서만 코드 실행
+    const [boardlist , setboard]=useState([]);
+    useEffect(()=>{
+        console.log('mount');
+        const token = localStorage.getItem('accessToken')
+        if (token ===null){
+            alert("로그인을 하셔야 글을 볼 수 있습니다.")
+            document.location.href = "/"
+        }
+        else{
+            axios.get("http://localhost:3000/board/get",{
+        headers: {
+            authorization: token
+        }}).then((res)=>{
+            if(res.data.data==="need Token"){
+                alert("로그인을 해주세요")
+                document.location.href = "/";
+            }else{
+                const boardInfo = res.data.data
+                console.log(boardInfo)
+                setboard(boardInfo)
+                console.log(boardlist)
+            }
+        })}
+        return ()=>{
+            console.log('unmount');
+        };
+    },[]);
     
     return(
         <div className="Board">
@@ -19,11 +46,6 @@ const Board = ()=>{
                         <th>글쓴이</th>
                         <th>작성일</th>
                     </tr>
-                    <BoardList />
-                    <BoardList />
-                    <BoardList />
-                    <BoardList />
-                    <BoardList />
                     <BoardList />
                 </thead>
             </table>

@@ -15,8 +15,22 @@ const writeBoard=async(userIdx,title, content)=>{
     }
 }
 
+const getBoard= async(n)=>{
+    let result
+    try{
+        result = await models['board'].findAll({
+            where:{
+                title:n
+            },raw:true
+        });
+    }catch(err){
+        console.log(err);
+    }
+    return result;
+}
+
 
 
 module.exports = {
-    writeBoard, 
+    writeBoard, getBoard
 }
