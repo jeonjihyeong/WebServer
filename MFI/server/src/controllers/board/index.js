@@ -18,8 +18,8 @@ const get = async(req, res)=>{
     let result;
     try{
         result = await boardService.getBoard("뭐");
-        console.log(result.title);
-        res.send({result})
+        console.log(result);
+        res.send({data:result});
     }catch(err){
         console.log(err)
     }
