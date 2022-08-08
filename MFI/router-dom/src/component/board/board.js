@@ -21,16 +21,16 @@ const Board = ()=>{
                 alert("로그인을 해주세요")
                 document.location.href = "/";
             }else{
-                const boardInfo = res.data.data
+                const boardInfo = res.data
                 console.log(boardInfo)
                 setboard(boardInfo)
-                console.log(boardlist)
             }
         })}
         return ()=>{
             console.log('unmount');
         };
     },[]);
+    console.log(boardlist.data[0].title)
     
     return(
         <div className="Board">
@@ -46,7 +46,7 @@ const Board = ()=>{
                         <th>글쓴이</th>
                         <th>작성일</th>
                     </tr>
-                    <BoardList />
+                    <BoardList title = {boardlist.data[0].title} writer ={boardlist.data[0].userIdx} created ={boardlist.data[0].created}/>
                 </thead>
             </table>
             <div className="paging">
@@ -67,13 +67,13 @@ const Board = ()=>{
     )
 }
 
-const BoardList=()=>{
+const BoardList=({title, writer, created})=>{
     return (
         <tr className="BoardList">
-            <td>3</td>
-            <td>삼성전자 주식 종목 분석글</td>
-            <td>글쓴이</td>
-            <td>2022-08-01</td>
+            <td>1</td>
+            <td>{title}</td>
+            <td>{writer}</td>
+            <td>{created}</td>
         </tr>
     )
 }
