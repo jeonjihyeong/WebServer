@@ -30,7 +30,7 @@ const Board = ()=>{
             console.log('unmount');
         };
     },[]);
-    console.log(boardlist.data[0].title)
+    console.log(boardlist)
     
     return(
         <div className="Board">
@@ -46,7 +46,12 @@ const Board = ()=>{
                         <th>글쓴이</th>
                         <th>작성일</th>
                     </tr>
-                    <BoardList title = {boardlist.data[0].title} writer ={boardlist.data[0].userIdx} created ={boardlist.data[0].created}/>
+                    {
+                        boardlist.length !== 0  && (
+                            <BoardList title = {boardlist.data[0].title} writer ={boardlist.data[0].userIdx} created ={boardlist.data[0].created}/>
+                        )
+                    }
+                    
                 </thead>
             </table>
             <div className="paging">
