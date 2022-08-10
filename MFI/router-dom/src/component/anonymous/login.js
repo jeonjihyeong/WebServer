@@ -4,17 +4,21 @@ import loginEvent from '../../service/anonymous/login'
 
 function Login(){
 
-  const [inputId,setId]= useState("")
-  const [inputPw,setPw]= useState("")
+  const [loginInput,setLogin]= useState({
+    id: '',
+    pw: '',
+  })
 
-  const handleIdNameOnChange = (e) => {
-    setId(e.target.value)
+  const handleLoginValue = (e) => {
+    const {name, value}=e.target;
+    setLogin({
+      ...loginInput,
+      [name] : value
+    })
 }
-  const handlePwOnChange = (e) => {
-    setPw(e.target.value)
-}
+
   const handlelogin = () => {
-    loginEvent(inputId, inputPw)
+    loginEvent(loginInput)
 }
 
     return (
@@ -22,10 +26,10 @@ function Login(){
         <h2 className='logintext'>로그인하기</h2>
         <nav className='input'>
             <div>
-            아 이 디: <input type="text" name="inputId" onChange={handleIdNameOnChange}></input>
+              <input type="text" placeholder='아이디' name="id" onChange={handleLoginValue}></input>
             </div>
             <div>
-            비밀번호: <input type="text" name="inputPw" onChange={handlePwOnChange}></input>
+              <input  type="text" placeholder='비밀번호' name="pw" onChange={handleLoginValue}></input>
             </div>
             <NavLink to="/acount">회원가입/</NavLink>
             <NavLink to="/idfind">아이디 찾기/</NavLink>

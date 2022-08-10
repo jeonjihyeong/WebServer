@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const loginEvent =async(id,pw)=>{
+const loginEvent =async({id,pw})=>{
     axios.post("http://localhost:3000/login",{
         id: id,
         pw: pw

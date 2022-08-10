@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const acountEvent = async(id, pw, age, email, name, nickname)=>{
+const acountEvent = async({id, pw, age, email, name, nickname})=>{
     await axios.post("http://localhost:3000/signup",{
         id: id,
         pw: pw,

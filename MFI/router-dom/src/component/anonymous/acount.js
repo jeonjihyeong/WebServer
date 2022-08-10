@@ -3,56 +3,48 @@ import acountEvent from '../../service/anonymous/acount'
 
 
 const Acount=()=>{
-    const [acountId,setAcountId]= useState("")
-    const [acountPw,setAcountPw]= useState("")
-    const [acountAge,setAcountAge]= useState("")
-    const [acountEmail,setAcountEmail]= useState("")
-    const [acountName,setAcountName]= useState("")
-    const [acountNickname,setAcountNickname]= useState("")
+    const [acountInput,setAcountValue]= useState({
+        id: '',
+        pw: '',
+        age:'',
+        email:'',
+        name:'',
+        nickname:'',
+    })
 
-    const idChange=(e)=>{
-        setAcountId(e.target.value)
-    }
-    const pwChange=(e)=>{
-        setAcountPw(e.target.value)
-    }
-    const ageChange=(e)=>{
-        setAcountAge(e.target.value)
-    }
-    const emailChange=(e)=>{
-        setAcountEmail(e.target.value)
-    }
-    const nameChange=(e)=>{
-        setAcountName(e.target.value)
-    }
-    const nicknameChange=(e)=>{
-        setAcountNickname(e.target.value)
-    }
+const handleAcountValue=(e)=>{
+    const {name, value}=e.target
+    setAcountValue({
+        ...acountInput,
+        [name]:value
+    })
+}
+
 
     const handleAcount=()=>{
-        acountEvent(acountId, acountPw, acountAge, acountEmail, acountName, acountNickname)
+        acountEvent(acountInput)
     }
 
     return (
         <div>
             <h2>회원가입하기</h2>
             <div>
-                아 이 디: <input type="text" name="acountId" onChange={idChange}></input>
+                <input type="text" placeholder='아이디' name="id" onChange={handleAcountValue}></input>
             </div>
             <div>
-                비밀번호: <input type="text" name="acountPw" onChange={pwChange}></input>
+                <input type="text" placeholder='비밀번호' name="pw" onChange={handleAcountValue}></input>
             </div>
             <div>
-                나 이 : <input type="text" name="acountAge" onChange={ageChange}></input>
+                <input type="text" placeholder='나이' name="age" onChange={handleAcountValue}></input>
             </div>
             <div>
-                이 메 일: <input type="text" name="acountEmail" onChange={emailChange}></input>
+                <input type="text" placeholder='이메일' name="email" onChange={handleAcountValue}></input>
             </div>
             <div>
-                이 름 : <input type="text" name="acountName" onChange={nameChange}></input>
+                <input type="text" placeholder='이름' name="name" onChange={handleAcountValue}></input>
             </div>
             <div>
-                닉 네 임: <input type="text" name="acountNickname" onChange={nicknameChange}></input>
+                <input type="text" placeholder='닉네임' name="nickname" onChange={handleAcountValue}></input>
             </div>
             <input type={"button"} value="회원가입" onClick={handleAcount}></input>
         </div>
