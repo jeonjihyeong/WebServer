@@ -20,7 +20,7 @@ const getBoard= async(n)=>{
     try{
         result = await models['board'].findAll({
             where:{
-                title:n
+                userIdx: n
             },raw:true
         })
         // res.data=result;s

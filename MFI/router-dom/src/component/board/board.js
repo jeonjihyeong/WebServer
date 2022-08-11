@@ -21,7 +21,7 @@ const Board = ()=>{
                 alert("로그인을 해주세요")
                 document.location.href = "/";
             }else{
-                const boardInfo = res.data
+                const boardInfo = res.data.data
                 console.log(boardInfo)
                 setboard(boardInfo)
             }
@@ -48,9 +48,11 @@ const Board = ()=>{
                     </tr>
                     {
                         boardlist.length !== 0  && (
-                            <BoardList title = {boardlist.data[0].title} writer ={boardlist.data[0].userIdx} created ={boardlist.data[0].created}/>
+                            boardlist.map(data =>(
+                                <BoardList data ={data} key={data.boardIdx}/>
+                                ) 
                         )
-                    }
+                    )}
                     
                 </thead>
             </table>
@@ -72,13 +74,13 @@ const Board = ()=>{
     )
 }
 
-const BoardList=({title, writer, created})=>{
+const BoardList=({data})=>{
     return (
         <tr className="BoardList">
             <td>1</td>
-            <td>{title}</td>
-            <td>{writer}</td>
-            <td>{created}</td>
+            <td><NavLink to= {`/board/viewBoard/${data.boardIdx}`}>{data.title}</NavLink></td>
+            <td>{data.writer}</td>
+            <td>1+</td>
         </tr>
     )
 }
