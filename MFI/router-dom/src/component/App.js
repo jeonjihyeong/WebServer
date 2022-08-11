@@ -10,7 +10,7 @@ import Info from './user/info';
 import News from './board/news';
 import Notice from './notice/notice';
 import WriteBoard from './board/writeBoard';
-
+import ViewBoard from './board/viewBoard';
 
 
 
@@ -26,6 +26,7 @@ function App() {
           <Route path="/" exact><Home></Home></Route>  
           <Route exact path="/board"><Board></Board></Route>
           <Route path="/board/write"><WriteBoard /></Route>
+          <Route path="/board/viewboard/:boardIdx"><ViewBoard /></Route>
           <Route path="/notice"><Notice></Notice></Route>
           <Route path="/introduce"><Introduce></Introduce></Route>
           <Route path="/news"><News></News></Route>

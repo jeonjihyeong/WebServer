@@ -17,7 +17,7 @@ const get = async(req, res)=>{
     console.log("controller working")
     let result;
     try{
-        result = await boardService.getBoard("뭐");
+        result = await boardService.getBoard(1);
         console.log(result);
         res.send({data:result});
     }catch(err){
