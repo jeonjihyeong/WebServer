@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect , useState} from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, Route} from "react-router-dom"
+import ViewBoard from "./viewBoard";
 
 
 const Board = ()=>{
@@ -34,6 +35,7 @@ const Board = ()=>{
     
     return(
         <div className="Board">
+            {boardlist.length !==0 &&(<Route path="/board/viewboard/:boardIdx"><ViewBoard data={boardlist}/></Route>)}
             <div className="topTitle">
                 분석글 보기
                 <NavLink to="/board/write">분석글 작성하기/</NavLink>
