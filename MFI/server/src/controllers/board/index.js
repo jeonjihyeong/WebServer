@@ -1,5 +1,5 @@
 const {boardService} = require('../../service');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 const write = async(req,res)=>{
     console.log("컨트롤러 동작");
@@ -25,6 +25,20 @@ const get = async(req, res)=>{
     }
 }
 
+const getContent = async(req, res)=>{
+    console.log("controller working");
+    const textId = req.params.boardIdx;
+    console.log(textId)
+    let result;
+    try{
+        result = await boardService.getText(textId);
+        console.log(result);
+        res.send({data:result});
+    }catch(err){
+        console.log(err)
+    }
+}
+
 module.exports={
-    write, get
+    write, get,getContent
 }

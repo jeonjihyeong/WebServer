@@ -23,8 +23,22 @@ const getBoard= async(n)=>{
                 userIdx: n
             },raw:true
         })
-        // res.data=result;s
+        // res.data=result;
         
+    }catch(err){
+        console.log(err);
+    }
+    return result;
+}
+
+const getText = async(boardIdx)=>{
+    let result;
+    try{
+        result = await models['board'].findOne({
+            where:{
+                boardIdx: boardIdx
+            }
+    })
     }catch(err){
         console.log(err);
     }
@@ -34,5 +48,5 @@ const getBoard= async(n)=>{
 
 
 module.exports = {
-    writeBoard, getBoard
+    writeBoard, getBoard, getText
 }
