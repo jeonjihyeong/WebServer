@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import axios from "axios"
 
 
-function ViewBoard({data}) {
+function ViewBoard() {
   const [boardContent , setboardContent]=useState([]);
   const params = useParams()
     useEffect(()=>{
@@ -27,6 +27,8 @@ function ViewBoard({data}) {
                 console.log(boardInfo)
                 setboardContent(boardInfo)
             }
+        }).catch((err)=>{
+          console.log(err);
         })}
         return ()=>{
             console.log('unmount');
@@ -35,22 +37,55 @@ function ViewBoard({data}) {
     console.log(boardContent)
 
 
-  console.log(params)
-  console.log(data)
   return (
-    <>
+    <div className='ViewBoard'>
+      
       <div className='viewBoardTitle'>
-        title:{boardContent.title}
+        {boardContent.title}
       </div>
       <div className='viewBoardContent'>
-        content:{boardContent.content}
+        {boardContent.content}
       </div>
-      <div>
-        comment
+      <div className='viewBoardCreated'>
+        작성일: {boardContent.created}
       </div>
-      viewBoard  
-    </>
+        <div className ='Comments'>
+          <div className='boardCommentsTitle'>
+            댓글
+          </div>
+          
+          <Comment/>
+          <Comment/>
+          <Comment/>
+          <Comment/>
+          <Comment/>
+          <div>
+            <input className='writeComments' placeholder='댓글 작성'/>
+            <div className="commentButton">
+              <input className="button" type={"button"} value="작성"/>
+            </div>
+          </div>
+        </div>
+      </div>
   )
 }
+
+
+
+function Comment() {
+  return (
+    <div className='Comment'>
+      <div className='commentLine'>
+        <span className="commentWriter">작성자 :</span>
+        <span className="commentText">댓글 내용</span>
+      </div>
+      
+      <div className='commentCreated'>
+        댓글 작성일: 201833435
+      </div>
+    </div>
+  )
+}
+
 
 export default ViewBoard
