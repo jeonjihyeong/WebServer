@@ -29,7 +29,7 @@ function Login(){
               <input type="text" placeholder='아이디' name="id" onChange={handleLoginValue}></input>
             </div>
             <div>
-              <input  type="text" placeholder='비밀번호' name="pw" onChange={handleLoginValue}></input>
+              <input  type="password" placeholder='비밀번호' name="pw" onChange={handleLoginValue}></input>
             </div>
             <NavLink to="/acount">회원가입/</NavLink>
             <NavLink to="/idfind">아이디 찾기/</NavLink>
