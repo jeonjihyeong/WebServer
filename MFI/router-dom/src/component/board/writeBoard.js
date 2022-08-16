@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import writeBoardEvent from '../../service/board/writeBoard'
+import writeBoardEvent from '../../api/board/writeBoard'
 
 const WriteBoard= () => {
   const [boardInput, setBoardValue]=useState({
