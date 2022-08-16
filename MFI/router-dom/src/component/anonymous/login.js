@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { NavLink } from 'react-router-dom'
-import loginEvent from '../../service/anonymous/login'
+import loginEvent from '../../api/anonymous/login'
 
 function Login(){
 

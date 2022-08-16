@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import acountEvent from '../../service/anonymous/acount'
+import acountEvent from '../../api/anonymous/acount'
 
 
 const Acount=()=>{
@@ -12,7 +12,7 @@ const Acount=()=>{
         nickname:'',
     })
 
-const handleAcountValue=(e)=>{
+const handleAcountValue=(e)=>{s
     const {name, value}=e.target
     setAcountValue({
         ...acountInput,
