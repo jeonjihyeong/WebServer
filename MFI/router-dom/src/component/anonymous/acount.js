@@ -12,7 +12,7 @@ const Acount=()=>{
         nickname:'',
     })
 
-const handleAcountValue=(e)=>{s
+const handleAcountValue=(e)=>{
     const {name, value}=e.target
     setAcountValue({
         ...acountInput,

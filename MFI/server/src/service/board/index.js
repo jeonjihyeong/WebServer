@@ -1,4 +1,5 @@
 const {models, Op}= require('../../lib/db')
+const user =require('../../lib/db/model/user')
 
 const writeBoard=async(userIdx,title, content)=>{
     let result;
@@ -19,6 +20,7 @@ const getBoard= async(n)=>{
     let result;
     try{
         result = await models['board'].findAll({
+            include:models['user'],raw:true,
             where:{
                 userIdx: n
             },raw:true
@@ -35,6 +37,7 @@ const getText = async(boardIdx)=>{
     let result;
     try{
         result = await models['board'].findOne({
+            include:models['user'],
             where:{
                 boardIdx: boardIdx
             }
