@@ -22,7 +22,7 @@ const Board = ()=>{
                 document.location.href = "/";
             }else{
                 const boardInfo = res.data.data
-                console.log(boardInfo)
+                // console.log(boardInfo)
                 setboard(boardInfo)
             }
         })}
@@ -30,7 +30,7 @@ const Board = ()=>{
             console.log('unmount');
         };
     },[]);
-    console.log(boardlist)
+    console.log(boardlist[0].user.age)
     
     return(
         <div className="Board">
@@ -60,7 +60,7 @@ const Board = ()=>{
             <div className="paging">
                 <NavLink to="/viewBoard">◀</NavLink>
                 <NavLink to="/viewBoard">◁</NavLink>
-                <NavLink to="/viewBoard">1/</NavLink>
+                <NavLink to={`/board/page?${boardlist.idx}`}>1/</NavLink>
                 <NavLink to="/viewBoard">2/</NavLink>
                 <NavLink to="/viewBoard">3/</NavLink>
                 <NavLink to="/viewBoard">4/</NavLink>
@@ -78,7 +78,7 @@ const Board = ()=>{
 const BoardList=({data})=>{
     return (
         <tr className="BoardList">
-            <td>1</td>
+            <td>{data.boardIdx}</td>
             <td><NavLink to= {`/board/viewBoard/${data.boardIdx}`}>{data.title}</NavLink></td>
             <td>{data.writer}</td>
             <td>1+</td>
