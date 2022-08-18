@@ -169,3 +169,8 @@ a{
 .commentButton{
     text-align: right;
 }
+
+.viewBoardWriter{
+    font-size: 15px; text-align: right; width: 80%;
+    margin: auto;
+}

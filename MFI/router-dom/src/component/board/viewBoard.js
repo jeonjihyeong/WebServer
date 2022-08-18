@@ -35,6 +35,7 @@ function ViewBoard() {
         };
     },[params]);
     console.log(boardContent)
+    console.log(boardContent.user.name)
 
 
   return (
@@ -42,6 +43,9 @@ function ViewBoard() {
       
       <div className='viewBoardTitle'>
         {boardContent.title}
+      </div>
+      <div className='viewBoardWriter'>
+        작성자: {boardContent.user.name}
       </div>
       <div className='viewBoardContent'>
         {boardContent.content}
