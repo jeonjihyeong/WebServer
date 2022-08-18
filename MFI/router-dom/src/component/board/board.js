@@ -30,8 +30,8 @@ const Board = ()=>{
             console.log('unmount');
         };
     },[]);
-    console.log(boardlist[0].user.age)
     
+    console.log(boardlist[0])
     return(
         <div className="Board">
             
@@ -60,7 +60,7 @@ const Board = ()=>{
             <div className="paging">
                 <NavLink to="/viewBoard">◀</NavLink>
                 <NavLink to="/viewBoard">◁</NavLink>
-                <NavLink to={`/board/page?${boardlist.idx}`}>1/</NavLink>
+                <NavLink to={`/board/page?${boardlist.boardidx}=10&${boardlist.user}`}>1/</NavLink>
                 <NavLink to="/viewBoard">2/</NavLink>
                 <NavLink to="/viewBoard">3/</NavLink>
                 <NavLink to="/viewBoard">4/</NavLink>
@@ -80,8 +80,8 @@ const BoardList=({data})=>{
         <tr className="BoardList">
             <td>{data.boardIdx}</td>
             <td><NavLink to= {`/board/viewBoard/${data.boardIdx}`}>{data.title}</NavLink></td>
-            <td>{data.writer}</td>
-            <td>1+</td>
+            <td>{data.user.name}</td>
+            <td>{data.created}</td>
         </tr>
     )
 }

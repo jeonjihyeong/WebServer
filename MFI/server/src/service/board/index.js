@@ -16,14 +16,12 @@ const writeBoard=async(userIdx,title, content)=>{
     }
 }
 
-const getBoard= async(n)=>{ 
+const getBoard= async()=>{ 
     let result;
     try{
         result = await models['board'].findAll({
-            include:models['user'],raw:true,
-            where:{
-                userIdx: n
-            },raw:true
+            include:models['user'].name,
+            
         })
         // res.data=result;
         
