@@ -1,7 +1,8 @@
 #header{
-    height: 60px;background-color: rgb(250, 123, 39);
+    height: 60px; background-color: rgb(250, 123, 39);
     display: flex;
     justify-content: space-between;
+
 
 }
 

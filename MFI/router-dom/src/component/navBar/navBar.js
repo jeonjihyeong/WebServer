@@ -1,7 +1,7 @@
 import logo from '../../views/img/MFI 로고 수정본.png';
 import {NavLink} from 'react-router-dom';
 
-function Nav(props){
+function Nav(){
   const token = localStorage.getItem("accessToken");
   let loginStatus = false;
   
