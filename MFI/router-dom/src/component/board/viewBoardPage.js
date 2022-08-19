@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import axios from "axios"
 
 
-function ViewBoard() {
+function ViewBoardPage() {
   const [boardContent , setboardContent]=useState([]);
   const params = useParams()
     useEffect(()=>{
@@ -14,10 +14,10 @@ function ViewBoard() {
             document.location.href = "/"
         }
         else{
-            axios.get(`http://localhost:3000/board/content/${params.boardIdx}`,{
+          const getBoard=async()=>{
+            await axios.get(`http://localhost:3000/board/content/${params.boardIdx}`,{
         headers: {
             authorization: token,
-           
         }}).then((res)=>{
             if(res.data.data==="need Token"){
                 alert("로그인을 해주세요")
@@ -29,52 +29,57 @@ function ViewBoard() {
             }
         }).catch((err)=>{
           console.log(err);
-        })}
+        })} 
+        getBoard();
+        }
         return ()=>{
             console.log('unmount');
         };
     },[params]);
-    console.log(boardContent)
-    console.log(boardContent.user.name)
 
-
+ 
   return (
     <div className='ViewBoard'>
-      
-      <div className='viewBoardTitle'>
-        {boardContent.title}
-      </div>
-      <div className='viewBoardWriter'>
-        작성자: {boardContent.user.name}
-      </div>
-      <div className='viewBoardContent'>
-        {boardContent.content}
-      </div>
-      <div className='viewBoardCreated'>
-        작성일: {boardContent.created}
-      </div>
-        <div className ='Comments'>
-          <div className='boardCommentsTitle'>
-            댓글
-          </div>
-          
-          <Comment/>
-          <Comment/>
-          <Comment/>
-          <Comment/>
-          <Comment/>
-          <div>
-            <input className='writeComments' placeholder='댓글 작성'/>
-            <div className="commentButton">
-              <input className="button" type={"button"} value="작성"/>
-            </div>
-          </div>
-        </div>
+      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent}/>}
       </div>
   )
 }
 
-
+function BoardContent({data}){
+  return (
+    <>
+      <div className='viewBoardTitle'>
+          {data.title}
+        </div>
+        <div className='viewBoardWriter'>
+          작성자: {data.user.name}
+        </div>
+        <div className='viewBoardContent'>
+          {data.content}
+        </div>
+        <div className='viewBoardCreated'>
+          작성일: {data.created}
+        </div>
+          <div className ='Comments'>
+            <div className='boardCommentsTitle'>
+              댓글
+            </div>
+            
+            <Comment/>
+            <Comment/>
+            <Comment/>
+            <Comment/>
+            <Comment/>
+            <div>
+              <input className='writeComments' placeholder='댓글 작성'/>
+              <div className="commentButton">
+                <input className="button" type={"button"} value="작성"/>
+              </div>
+            </div>
+          </div>
+    </>
+  )
+}
 
 function Comment() {
   return (
@@ -92,4 +97,4 @@ function Comment() {
 }
 
 
-export default ViewBoard
+export default ViewBoardPage

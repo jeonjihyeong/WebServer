@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect , useState} from "react"
 import { NavLink} from "react-router-dom"
+import deleteEvent from "../../api/board/deleteEvent"
 
 
 const Board = ()=>{
@@ -77,12 +78,15 @@ const Board = ()=>{
 
 const BoardList=({data})=>{
     return (
+        <>
         <tr className="BoardList">
             <td>{data.boardIdx}</td>
             <td><NavLink to= {`/board/viewBoard/${data.boardIdx}`}>{data.title}</NavLink></td>
             <td>{data.user.name}</td>
             <td>{data.created}</td>
+            <button onClick={deleteEvent()}>x</button>
         </tr>
+        </>
     )
 }
 
