@@ -15,7 +15,7 @@ function enterkey() {
     }
 }
 
-function clickEvent(){
+function clickEvent (){
     const id = document.getElementById('id').value;
     const pw=  document.getElementById('pw').value;
 
