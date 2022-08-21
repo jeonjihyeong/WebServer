@@ -1,7 +1,7 @@
+/* eslint-disable */
 import axios from "axios";
-import { useEffect , useState} from "react"
-import { NavLink} from "react-router-dom"
-import deleteEvent from "../../api/board/deleteEvent"
+import { useEffect , useState} from "react";
+import { NavLink} from "react-router-dom";
 import Pagination from "./paginations";
 
 const Board = ()=>{
@@ -27,7 +27,6 @@ const Board = ()=>{
                 document.location.href = "/";
             }else{
                 const boardInfo = res.data.data
-                // console.log(boardInfo)
                 setboard(boardInfo)
             }
         })}
@@ -41,8 +40,8 @@ const Board = ()=>{
         <div className="Board">
             
             <div className="topTitle">
-                분석글 보기
-                <NavLink to="/board/write">분석글 작성하기/</NavLink>
+                분석글 보기/
+                <NavLink to="/board/write">분석글 작성하기</NavLink>
             </div>
             <table className="boardTable">
                 <thead>
@@ -56,15 +55,6 @@ const Board = ()=>{
                         boardlist.slice(offset, offset + limit).map(({ boardIdx, user, title, created}) => (
                             <BoardList boardIdx={boardIdx} title={title} user={user} created={created} key={boardIdx}/>
                         )))}
-
-
-                    {/* {boardlist.length !== 0  && (
-                            boardlist.map(data =>(
-                                <BoardList data ={data} key={data.boardIdx}/>
-                                ) 
-                        )
-                    )} */}
-                    
                 </thead>
             </table>
             <footer className="paging">
@@ -79,18 +69,6 @@ const Board = ()=>{
     )
 }
 
-
-// <NavLink to="/viewBoard">◀</NavLink>
-//                 <NavLink to="/viewBoard">◁</NavLink>
-//                 <NavLink to={`/board/page?${boardlist.boardidx}=10&${boardlist.user}`}>1/</NavLink>
-//                 <NavLink to="/viewBoard">2/</NavLink>
-//                 <NavLink to="/viewBoard">3/</NavLink>
-//                 <NavLink to="/viewBoard">4/</NavLink>
-//                 <NavLink to="/viewBoard">5/</NavLink>
-//                 <NavLink to="/viewBoard">6</NavLink>
-//                 <NavLink to="/viewBoard">▷</NavLink>
-//                 <NavLink to="/viewBoard">▶</NavLink>
-
 const BoardList=({boardIdx, user, title, created})=>{
     return (
         <>
@@ -99,7 +77,6 @@ const BoardList=({boardIdx, user, title, created})=>{
             <td><NavLink to= {`/board/viewBoard/${boardIdx}`}>{title}</NavLink></td>
             <td>{user.name}</td>
             <td>{created}</td>
-            <button onClick={deleteEvent()}>x</button>
         </tr>
         </>
     )
