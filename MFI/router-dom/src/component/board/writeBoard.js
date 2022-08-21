@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react'
 import writeBoardEvent from '../../api/board/writeBoard'
 
@@ -40,4 +41,6 @@ const WriteBoard= () => {
 }
 
 export default  WriteBoard
+
+
 

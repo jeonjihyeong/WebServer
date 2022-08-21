@@ -1,8 +1,9 @@
+/* eslint-disable */
 import '../views/App.css';
 import React from 'react';
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Login from './anonymous/login'
-import Nav from './navBar/navBar'
+import Nav from './Nav/Nav'
 import Acount from './anonymous/acount';
 import Board from './board/board';
 import Introduce from './notice/introduce';
