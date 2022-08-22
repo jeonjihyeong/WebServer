@@ -38,6 +38,9 @@ const create = async (sequelize) => {
         userTable.hasMany(models.board, 
             {foreignKey: 'userIdx',
         });
+        userTable.hasMany(models.comment, 
+            {foreignKey: 'userIdx',
+        });
     };
 
     return userTable;

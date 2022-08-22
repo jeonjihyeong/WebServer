@@ -1,5 +1,4 @@
 const {models, Op}= require('../../lib/db')
-const user =require('../../lib/db/model/user')
 
 const writeBoard=async(userIdx,title, content)=>{
     let result;

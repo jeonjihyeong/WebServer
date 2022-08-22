@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from "axios"
+import writeComment from "../../api/comment/writeComment"
 
 
 function ViewBoardPage() {
   const [boardContent , setboardContent]=useState([]);
+  const [token,setToken]=useState()
   const params = useParams()
     useEffect(()=>{
         console.log('mount');
-        const token = localStorage.getItem('accessToken')
-        if (token ===null){
+        const accesstoken = localStorage.getItem('accessToken')
+        setToken(accesstoken);
+        if (accesstoken ===null){
             alert("로그인을 하셔야 글을 볼 수 있습니다.")
             document.location.href = "/"
         }
@@ -17,7 +20,7 @@ function ViewBoardPage() {
           const getBoard=async()=>{
             await axios.get(`http://localhost:3000/board/content/${params.boardIdx}`,{
         headers: {
-            authorization: token,
+            authorization: accesstoken,
         }}).then((res)=>{
             if(res.data.data==="need Token"){
                 alert("로그인을 해주세요")
@@ -40,12 +43,25 @@ function ViewBoardPage() {
  
   return (
     <div className='ViewBoard'>
-      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent}/>}
+      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token}/>}
       </div>
   )
 }
 
-function BoardContent({data}){
+function BoardContent({data,token}){
+  const [comment, setComment]=useState("")
+  const handleComment =(e)=>{
+    const {value}=e.target
+    setComment(value)
+  };
+  const handleWriteComment=()=>{
+    if(token ===null){
+      alert("로그인을 해주세요")
+      document.location.href('/login')
+    }else{
+    writeComment(data.boardIdx,comment,token);
+    }
+  }
   return (
     <>
       <div className='viewBoardTitle'>
@@ -64,16 +80,15 @@ function BoardContent({data}){
             <div className='boardCommentsTitle'>
               댓글
             </div>
-            
             <Comment/>
             <Comment/>
             <Comment/>
             <Comment/>
             <Comment/>
             <div>
-              <input className='writeComments' placeholder='댓글 작성'/>
+              <input type={"text"} className='writeComments' placeholder='댓글 작성' onChange={handleComment}/>
               <div className="commentButton">
-                <input className="button" type={"button"} value="작성"/>
+                <input className="button" type={"button"} value="작성" onClick={handleWriteComment}/>
               </div>
             </div>
           </div>
