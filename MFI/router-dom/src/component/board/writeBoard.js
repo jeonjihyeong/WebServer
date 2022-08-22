@@ -20,6 +20,7 @@ const WriteBoard= () => {
     const token =localStorage.getItem("accessToken");
     if (token===null){
       alert("로그인을 해주세요");
+      document.location.href('/login');
     }else{
       writeBoardEvent(boardInput, token);
     }
