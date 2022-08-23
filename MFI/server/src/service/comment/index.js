@@ -15,11 +15,14 @@ const writeComment=async(userIdx,comment, boardIdx)=>{
     return
 }
 
-const getComment= async()=>{ 
+const getComment= async(boardIdx)=>{ 
     let result;
     try{
         result = await models['comment'].findAll({
-            include:models['board'],
+            include:models['user'],
+            where:{
+                boardIdx:boardIdx
+            }
         })
     }catch(err){
         console.log(err);

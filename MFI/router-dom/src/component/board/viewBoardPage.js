@@ -6,6 +6,7 @@ import writeComment from "../../api/comment/writeComment"
 
 function ViewBoardPage() {
   const [boardContent , setboardContent]=useState([]);
+  const [commentList , setcommentContent]=useState([]);
   const [token,setToken]=useState()
   const params = useParams()
     useEffect(()=>{
@@ -27,12 +28,16 @@ function ViewBoardPage() {
                 document.location.href = "/";
             }else{
                 const boardInfo = res.data.data
+                const commentInfo = res.data.comment
                 console.log(boardInfo)
+                console.log(commentInfo)
                 setboardContent(boardInfo)
+                setcommentContent(commentInfo)
             }
         }).catch((err)=>{
           console.log(err);
         })} 
+        
         getBoard();
         }
         return ()=>{
@@ -43,12 +48,12 @@ function ViewBoardPage() {
  
   return (
     <div className='ViewBoard'>
-      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token}/>}
+      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList}/>}
       </div>
   )
 }
 
-function BoardContent({data,token}){
+function BoardContent({data,token,commentList}){
   const [comment, setComment]=useState("")
   const handleComment =(e)=>{
     const {value}=e.target
@@ -80,11 +85,10 @@ function BoardContent({data,token}){
             <div className='boardCommentsTitle'>
               댓글
             </div>
-            <Comment/>
-            <Comment/>
-            <Comment/>
-            <Comment/>
-            <Comment/>
+            {commentList.map(comment=>
+              <Comment comment={comment} key={comment.commentIdx}/>
+              )}
+            
             <div>
               <input type={"text"} className='writeComments' placeholder='댓글 작성' onChange={handleComment}/>
               <div className="commentButton">
@@ -96,12 +100,12 @@ function BoardContent({data,token}){
   )
 }
 
-function Comment() {
+function Comment({comment}) {
   return (
     <div className='Comment'>
       <div className='commentLine'>
-        <span className="commentWriter">작성자 :</span>
-        <span className="commentText">댓글 내용</span>
+        <span className="commentWriterc">{comment.user.name} :</span>
+        <span className="commentText">{comment.comment}</span>
       </div>
       
       <div className='commentCreated'>

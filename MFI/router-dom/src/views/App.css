@@ -13,7 +13,6 @@
 table{
     border-collapse: collapse;
 }
-
 th, td{
     padding : 10px
 }
@@ -24,7 +23,6 @@ th, td{
     font-size: 15px;
     text-align: left;
 }
-
 .boardTable{
     margin: auto;
     width: 100%;
@@ -44,7 +42,6 @@ th, td{
 .boardTable tr{
     border-bottom: 1px solid rgb(195, 200, 243);
 }
-
 a{
     text-decoration: none; 
     color: inherit;
@@ -52,16 +49,12 @@ a{
     text-align: center;
     position: relative;
 }
-
 .main{
     vertical-align: middle;
     margin-top: 40px;
     height: 750px;
     text-align: center;
 }
-
-
-
 .nav{
     height: 70px;
     margin: auto;
@@ -70,14 +63,12 @@ a{
     text-align: 50px;
     
 }
-
 .loginInput{
     vertical-align: middle;
     text-align: center;
     position: relative;
     top: 50%;
 }
-
 .loginButton{
     background-color: rgb(180, 184, 243);
     border: none; color: white;
@@ -88,12 +79,10 @@ a{
     border: none; color: white;
     width: 70px; height: 30px; font-weight: bold;
 }
-
 .logintext{
     color:#666083;
     text-transform: bold;
 }
-
 .title{
     width: 80%;
     height: 40px;
@@ -101,60 +90,50 @@ a{
     font-weight: bold;
     border: 2px solid #ccc;
 }
-
 .content{
     width: 80%; height:500px;
     text-align: left;
     font-size: 17px;
     border: 2px solid #ccc;
 }
-
 .viewBoardTitle{
     margin: auto;
     width: 80%; font-size: 27px;
     font-weight: bold;
     text-align: left;
 }
-
 .ViewBoard{
     margin: auto;
 }
-
 .viewBoardContent{
     margin: auto;
     width: 80%; height: 500px; font-size: 18px;
     border: 1px solid #ccc;
     text-align: left;
 }
-
 .viewBoardCreated{
     margin: auto;
     width: 80%; font-size: 15px;
     text-align: right;
     color: rgb(103, 103, 103);
 }
-
 .Comments{
     margin: auto;
     width: 80%;
     text-align: center;
     
 }
-
 .boardCommentsTitle{
     margin: auto;
     border-bottom: 2px solid rgb(180, 184, 243);
     text-align: left; font-size: 24px; font-weight: bolder;
 }
-
 .commentLine{
     text-align: left; font-size: 18px;
 }
-
 .commentWriter{
     font-weight: bold;
 }
-
 .commentCreated{
     text-align: right; font-size: 12px;
     color:rgb(103, 103, 103)
@@ -165,7 +144,6 @@ a{
 .Comment{
     border-bottom: 1px solid #ccc
 }
-
 .commentButton{
     text-align: right;
 }
