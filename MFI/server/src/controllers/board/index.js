@@ -1,4 +1,4 @@
-const {boardService} = require('../../service');
+const {boardService,commentService} = require('../../service');
 const jwt = require('jsonwebtoken');
 
 const write = async(req,res)=>{
@@ -32,8 +32,9 @@ const getContent = async(req, res)=>{
     let result;
     try{
         result = await boardService.getText(textId);
+        comment= await commentService.getComment(textId);
         console.log(result);
-        res.send({data:result});
+        res.send({data:result, comment:comment});
     }catch(err){
         console.log(err)
     }
