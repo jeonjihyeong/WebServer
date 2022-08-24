@@ -1,3 +1,4 @@
+import { TextField, Button } from '@mui/material'
 import {useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import loginEvent from '../../api/anonymous/login'
@@ -18,7 +19,9 @@ function Login(){
 }
 
   const handlelogin = () => {
-    loginEvent(loginInput)
+    loginEvent(loginInput,setLogin)
+    
+    
 }
 
     return (
@@ -26,15 +29,26 @@ function Login(){
         <h2 className='logintext'>로그인하기</h2>
         <nav className='input'>
             <div>
-              <input type="text" placeholder='아이디' name="id" onChange={handleLoginValue}></input>
+              <TextField
+                type="text"
+                label='아이디'
+                name="id"
+                onChange={handleLoginValue}
+                sx={{
+                 mb:1,
+              }}/>
             </div>
             <div>
-              <input  type="password" placeholder='비밀번호' name="pw" onChange={handleLoginValue}></input>
+              <TextField
+                type="password"
+                label='비밀번호'
+                name="pw"
+                onChange={handleLoginValue}/>
             </div>
             <NavLink to="/acount">회원가입/</NavLink>
             <NavLink to="/idfind">아이디 찾기/</NavLink>
             <NavLink to="/pwfind">Pw 찾기</NavLink>
-            <input type={"button"} value="로그인" className='loginButton' onClick={handlelogin} ></input>
+            <Button variant="contained" className='loginButton' onClick={handlelogin} sx={{width:80, backgroundColor:'rgb(180, 184, 243)'}}>로그인</Button>
         </nav>
       </div>
     )

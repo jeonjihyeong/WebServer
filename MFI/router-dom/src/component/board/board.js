@@ -22,7 +22,9 @@ const Board = ()=>{
         headers: {
             authorization: token
         }}).then((res)=>{
-            if(res.data.data==="need Token"){
+            console.log(res.data)
+            if(res.data.message==="expired token"){
+                localStorage.removeItem('accessToken');
                 alert("로그인을 해주세요")
                 document.location.href = "/";
             }else{

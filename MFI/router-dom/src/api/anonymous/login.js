@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const loginEvent =async({id,pw})=>{
+const loginEvent =async({id,pw},setLogin)=>{
     axios.post("http://localhost:3000/login",{
         id: id,
         pw: pw
@@ -16,6 +16,10 @@ const loginEvent =async({id,pw})=>{
           alert('로그인 성공');
           console.log(res.data.data)
           localStorage.setItem('accessToken',res.data.data)
+          setLogin({
+            id:'',
+            pw: '',
+          })
           document.location.href= '/'
           return;
       }
