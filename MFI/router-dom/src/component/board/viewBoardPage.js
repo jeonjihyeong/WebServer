@@ -37,7 +37,6 @@ function ViewBoardPage() {
         }).catch((err)=>{
           console.log(err);
         })} 
-        
         getBoard();
         }
         return ()=>{
@@ -48,12 +47,12 @@ function ViewBoardPage() {
  
   return (
     <div className='ViewBoard'>
-      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList}/>}
+      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList} setcommentContent={setcommentContent}/>}
       </div>
   )
+  
 }
-
-function BoardContent({data,token,commentList}){
+function BoardContent({data,token,commentList,setcommentContent}){
   const [comment, setComment]=useState("")
   const handleComment =(e)=>{
     const {value}=e.target
@@ -65,6 +64,9 @@ function BoardContent({data,token,commentList}){
       document.location.href('/login')
     }else{
     writeComment(data.boardIdx,comment,token);
+    alert("댓글을 입력했습니다.")
+    setcommentContent([])
+
     }
   }
   return (
@@ -109,7 +111,7 @@ function Comment({comment}) {
       </div>
       
       <div className='commentCreated'>
-        댓글 작성일: 201833435
+        댓글 작성일: {comment.created}
       </div>
     </div>
   )

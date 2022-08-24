@@ -9,11 +9,20 @@ const decodeToken =async(anyToken)=>{
 }
 
 const verifyToken = async(anyToken)=>{
-    const verifiedToken = jwt.verify(anyToken, 'aaa',{
-        algorithm: 'HS256',
-        expiresIn: '2h',
-    })
-    return verifiedToken;
+    // const teno = jwt.verify(anyToken, 'aaa',{
+    // });
+
+
+    try {
+        jwt.verify(anyToken, 'aaa',{
+        })
+        return true;
+    }catch(err){
+        console.log(err)
+    }
+    // if(verifiedToken === 'jwt expired'){
+    //     return false;
+    // }else return true;
 }
 
 

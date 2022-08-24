@@ -17,7 +17,7 @@ const login = async(req, res) => {
           }
           const token = jwt.sign(payload, 'aaa',{
             algorithm: 'HS256',
-            expiresIn: '2h',
+            expiresIn: '5s',
           })
           console.log(token);
             res.send({data: token});
