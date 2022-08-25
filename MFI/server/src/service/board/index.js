@@ -46,8 +46,21 @@ const getText = async(boardIdx)=>{
     return result;
 }
 
+const deleteBoard = async(boardIdx)=>{
+    try{
+        await models['board'].destroy({
+            where:{
+                boardIdx: boardIdx
+            }
+        })
+    }catch(err){
+        console.log(err);
+    }
+    return
+}
+
 
 
 module.exports = {
-    writeBoard, getBoard, getText
+    writeBoard, getBoard, getText,deleteBoard
 }

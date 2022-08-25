@@ -2,11 +2,14 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from "axios"
 import writeComment from "../../api/comment/writeComment"
-
+import { Button } from '@mui/material'
+import updateBoard from '../../api/board/updateBoard'
+import deleteBoard from '../../api/board/deleteBoard'
 
 function ViewBoardPage() {
   const [boardContent , setboardContent]=useState([]);
   const [commentList , setcommentContent]=useState([]);
+  const [user , setuser]=useState([]);
   const [token,setToken]=useState()
   const params = useParams()
     useEffect(()=>{
@@ -29,10 +32,13 @@ function ViewBoardPage() {
             }else{
                 const boardInfo = res.data.data
                 const commentInfo = res.data.comment
+                const userInfo = res.data.userInfo
                 console.log(boardInfo)
                 console.log(commentInfo)
+                console.log(userInfo)
                 setboardContent(boardInfo)
                 setcommentContent(commentInfo)
+                setuser(userInfo)
             }
         }).catch((err)=>{
           console.log(err);
@@ -47,27 +53,25 @@ function ViewBoardPage() {
  
   return (
     <div className='ViewBoard'>
-      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList} setcommentContent={setcommentContent}/>}
+      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList} userInfo={user} />}
       </div>
   )
   
 }
-function BoardContent({data,token,commentList,setcommentContent}){
+function BoardContent({data,token,commentList,userInfo}){
   const [comment, setComment]=useState("")
   const handleComment =(e)=>{
     const {value}=e.target
     setComment(value)
   };
   const handleWriteComment=()=>{
-    if(token ===null){
-      alert("로그인을 해주세요")
-      document.location.href('/login')
-    }else{
     writeComment(data.boardIdx,comment,token);
-    alert("댓글을 입력했습니다.")
-    setcommentContent([])
-
-    }
+  }
+  const handleUpdateBoard=()=>{
+    updateBoard(data.boardIdx,comment,token);
+  }
+  const handleDeleteBoard =()=>{
+    deleteBoard(data.boardIdx,comment,token);
   }
   return (
     <>
@@ -83,6 +87,22 @@ function BoardContent({data,token,commentList,setcommentContent}){
         <div className='viewBoardCreated'>
           작성일: {data.created}
         </div>
+        <div className='deleteButton'>
+          {userInfo.userIdx===data.userIdx && (<div>
+          <Button
+            onClick={handleUpdateBoard()}
+            variant="contained"
+            sx={{
+              backgroundColor:'rgb(180,184,243)'
+            }}>수정</Button>
+          <Button
+            onClick={handleDeleteBoard()}
+            variant="contained"
+            sx={{
+              backgroundColor:'rgb(180,184,243)'
+            }}
+          >삭제</Button></div>)}
+        </div>
           <div className ='Comments'>
             <div className='boardCommentsTitle'>
               댓글
@@ -92,7 +112,7 @@ function BoardContent({data,token,commentList,setcommentContent}){
               )}
             
             <div>
-              <input type={"text"} className='writeComments' placeholder='댓글 작성' onChange={handleComment}/>
+              <input type={"text"} className='writeComments' placeholder='댓글 작성' name="commentInput" onChange={handleComment}/>
               <div className="commentButton">
                 <input className="button" type={"button"} value="작성" onClick={handleWriteComment}/>
               </div>
@@ -106,7 +126,7 @@ function Comment({comment}) {
   return (
     <div className='Comment'>
       <div className='commentLine'>
-        <span className="commentWriterc">{comment.user.name} :</span>
+        <span className="commentWriter">{comment.user.name} :</span>
         <span className="commentText">{comment.comment}</span>
       </div>
       

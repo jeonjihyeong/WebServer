@@ -8,11 +8,13 @@ const decodeToken =async(anyToken)=>{
     return decodedToken;
 }
 
+const signToken = async() => {
+    jwt.sign(payload, 'aaa',{
+    algorithm: 'HS256',
+    expiresIn: '5h',
+  })}
+
 const verifyToken = async(anyToken)=>{
-    // const teno = jwt.verify(anyToken, 'aaa',{
-    // });
-
-
     try {
         jwt.verify(anyToken, 'aaa',{
         })
@@ -20,12 +22,9 @@ const verifyToken = async(anyToken)=>{
     }catch(err){
         console.log(err)
     }
-    // if(verifiedToken === 'jwt expired'){
-    //     return false;
-    // }else return true;
 }
 
 
 module.exports={
-    decodeToken, verifyToken,
+    decodeToken, verifyToken,signToken
 }
