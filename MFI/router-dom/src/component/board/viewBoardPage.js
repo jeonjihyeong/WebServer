@@ -67,11 +67,11 @@ function BoardContent({data,token,commentList,userInfo}){
   const handleWriteComment=()=>{
     writeComment(data.boardIdx,comment,token);
   }
-  const handleUpdateBoard=()=>{
-    updateBoard(data.boardIdx,comment,token);
+  const handleUpdateBoard=async()=>{
+    await updateBoard(data.boardIdx,token);
   }
-  const handleDeleteBoard =()=>{
-    deleteBoard(data.boardIdx,comment,token);
+  const handleDeleteBoard =async()=>{
+    await deleteBoard(data.boardIdx,token);
   }
   return (
     <>
@@ -90,13 +90,13 @@ function BoardContent({data,token,commentList,userInfo}){
         <div className='deleteButton'>
           {userInfo.userIdx===data.userIdx && (<div>
           <Button
-            onClick={handleUpdateBoard()}
+            onClick={handleUpdateBoard}
             variant="contained"
             sx={{
               backgroundColor:'rgb(180,184,243)'
             }}>수정</Button>
           <Button
-            onClick={handleDeleteBoard()}
+            onClick={handleDeleteBoard}
             variant="contained"
             sx={{
               backgroundColor:'rgb(180,184,243)'

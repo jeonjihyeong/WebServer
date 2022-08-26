@@ -8,11 +8,18 @@ const decodeToken =async(anyToken)=>{
     return decodedToken;
 }
 
-const signToken = async() => {
-    jwt.sign(payload, 'aaa',{
-    algorithm: 'HS256',
-    expiresIn: '5h',
-  })}
+const signToken = async(payload) => {
+    try{
+        const result = jwt.sign(payload, 'aaa',{
+        algorithm: 'HS256',
+        expiresIn: '5h',
+        })
+        return result
+    }catch(err){
+        consonle.log(err)
+    }
+  return result
+}
 
 const verifyToken = async(anyToken)=>{
     try {
@@ -26,5 +33,5 @@ const verifyToken = async(anyToken)=>{
 
 
 module.exports={
-    decodeToken, verifyToken,signToken
+    decodeToken, verifyToken, signToken
 }
