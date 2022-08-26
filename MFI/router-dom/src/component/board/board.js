@@ -77,7 +77,7 @@ const BoardList=({boardIdx, user, title, created})=>{
         <tr className="BoardList">
             <td>{boardIdx}</td>
             <td><NavLink to= {`/board/viewBoard/${boardIdx}`}>{title}</NavLink></td>
-            <td>{user.name}</td>
+            <td><NavLink to= {`/board/viewBoard/${boardIdx}`}>{user.name}</NavLink></td>
             <td>{created}</td>
         </tr>
         </>
