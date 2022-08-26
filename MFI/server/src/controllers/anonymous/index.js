@@ -1,6 +1,6 @@
 const {anonymousService} =require('../../service')
 const jwt = require('jsonwebtoken')
-const signToken=require('../../lib/common/token')
+const {signToken}=require('../../lib/common/token')
 
 const login = async(req, res) => {
     const data=req.body;
@@ -16,7 +16,7 @@ const login = async(req, res) => {
           const payload = {
             ...idData.dataValues
           }
-          const token = signToken(payload);
+          const token = await signToken(payload);
           console.log(token);
             res.send({data: token});
         }

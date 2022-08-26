@@ -42,7 +42,6 @@ const getText = async(boardIdx)=>{
     }catch(err){
         console.log(err);
     }
-    console.log(result)
     return result;
 }
 

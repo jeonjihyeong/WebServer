@@ -25,9 +25,8 @@ const get = async(req, res)=>{
 }
 
 const getContent = async(req, res)=>{
-    console.log("controller: working");
+    console.log("CONTROLLER: WORKING");
     const textId = req.params.boardIdx;
-    console.log(textId)
     try{
         const result = await boardService.getText(textId);
         const comment= await commentService.getComment(textId);
@@ -40,7 +39,7 @@ const getContent = async(req, res)=>{
 
 
 const deleteContent = async(req,res)=>{
-    console.log("Controller: working");
+    console.log("CONTROLLER: WORKING");
     const textId = req.params.boardIdx;
     try{
         await boardService.deleteBoard(textId);
