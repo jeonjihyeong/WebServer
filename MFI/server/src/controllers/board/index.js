@@ -49,6 +49,18 @@ const deleteContent = async(req,res)=>{
     }    
 }
 
+const updateContent = async(req,res)=>{
+    console.log("CONTROLLER: WORKING");
+    const boardIdx= req.params.boardIdx;
+    try{
+        await boardService.updateBoard(boardIdx,req.body.content);
+        res.send({message:"Succcess"})
+    }catch(err){
+        res.send({message:"Failed"})
+    }
+    
+}
+
 module.exports={
-    write, get, getContent, deleteContent
+    write, get, getContent, deleteContent, updateContent
 }
