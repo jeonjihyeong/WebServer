@@ -7,6 +7,10 @@ const WriteBoard= () => {
     title:'',
     content:'',
   });
+  const [desc, setDesc] = useState('');
+    function onEditorChange(value) {
+        setDesc(value)
+    }
 
   const handleWriteBoardValue =(e)=>{
     const {name,value}=e.target
@@ -37,6 +41,7 @@ const WriteBoard= () => {
       <div>
         <input type={"button"} value={"글작성"} className={"button"} onClick={handlewriteBoardEvent}></input>
       </div>
+     
     </>
   )
 }

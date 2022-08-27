@@ -5,6 +5,7 @@ import writeComment from "../../api/comment/writeComment"
 import { Button } from '@mui/material'
 import updateBoard from '../../api/board/updateBoard'
 import deleteBoard from '../../api/board/deleteBoard'
+import { NavLink } from 'react-router-dom'
 
 function ViewBoardPage() {
   const [boardContent , setboardContent]=useState([]);
@@ -67,11 +68,8 @@ function BoardContent({data,token,commentList,userInfo}){
   const handleWriteComment=()=>{
     writeComment(data.boardIdx,comment,token);
   }
-  const handleUpdateBoard=async()=>{
-    await updateBoard(data.boardIdx,token);
-  }
-  const handleDeleteBoard =async()=>{
-    await deleteBoard(data.boardIdx,token);
+  const handleDeleteBoard =()=>{
+    deleteBoard(data.boardIdx,token);
   }
   return (
     <>
@@ -90,11 +88,10 @@ function BoardContent({data,token,commentList,userInfo}){
         <div className='deleteButton'>
           {userInfo.userIdx===data.userIdx && (<div>
           <Button
-            onClick={handleUpdateBoard}
             variant="contained"
             sx={{
               backgroundColor:'rgb(180,184,243)'
-            }}>수정</Button>
+            }}><NavLink to={`/board/update2/${data.boardIdx}}`}>수정</NavLink></Button>
           <Button
             onClick={handleDeleteBoard}
             variant="contained"
