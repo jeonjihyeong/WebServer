@@ -1,5 +1,6 @@
 const {models, Op}= require('../../lib/db')
 
+// 게시판 글 작성하기
 const writeBoard=async(userIdx,title, content)=>{
     let result;
     let timestamp = new Date().getTime();
@@ -15,6 +16,7 @@ const writeBoard=async(userIdx,title, content)=>{
     }
 }
 
+//게시판 리스트 글 가지고 오기
 const getBoard= async()=>{ 
     let result;
     try{
@@ -30,6 +32,7 @@ const getBoard= async()=>{
     return result;
 }
 
+// 게시판 글 가지고 오기
 const getText = async(boardIdx)=>{
     let result;
     try{
@@ -45,6 +48,7 @@ const getText = async(boardIdx)=>{
     return result;
 }
 
+// 게시판 글 삭제
 const deleteBoard = async(boardIdx)=>{
     try{
         await models['board'].destroy({
@@ -58,8 +62,20 @@ const deleteBoard = async(boardIdx)=>{
     return
 }
 
+const updateBoard = async(boardIdx)=>{
+    try{
+        await models['board'].update({
+            content:newContent
+        },{
+            where:{boardIdx:boardIdx}
+        })
+    }catch(err){
+        console.log(err);
+    }
+}
+
 
 
 module.exports = {
-    writeBoard, getBoard, getText,deleteBoard
+    writeBoard, getBoard, getText,deleteBoard, updateBoard
 }
