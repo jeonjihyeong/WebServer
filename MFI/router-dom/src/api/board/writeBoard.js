@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const writeBoardEvent = async ({title,content},token)=>{
     console.log(token)
-    await axios.post('http://localhost:3000/board/write',{
+    await axios.post('http://localhost:3000/board',{
             title: title,
             content: content
         },
