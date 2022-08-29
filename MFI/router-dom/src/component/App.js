@@ -14,6 +14,7 @@ import WriteBoard from './board/writeBoard';
 import ViewBoardPage from './board/viewBoardPage';
 import UpdateBoard from './board/UpdateBoard';
 import UpdateBoard2 from './board/UpdateBoard';
+import UpdateBoard3 from './board/UpdateBoard3';
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/board/viewboard/:boardIdx"><ViewBoardPage/></Route>
           <Route path="/board/update/:boardIdx"><UpdateBoard/></Route>
           <Route path="/board/update2/:boardIdx"><UpdateBoard2/></Route>
+          <Route path="/board/update3/:boardIdx"><UpdateBoard3/></Route>
           <Route path="/notice"><Notice></Notice></Route>
           <Route path="/introduce"><Introduce></Introduce></Route>
           <Route path="/news"><News></News></Route>
