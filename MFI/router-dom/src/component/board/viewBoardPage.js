@@ -23,7 +23,7 @@ function ViewBoardPage() {
         }
         else{
           const getBoard=async()=>{
-            await axios.get(`http://localhost:3000/board/content/${params.boardIdx}`,{
+            await axios.get(`http://localhost:3000/board/${params.boardIdx}`,{
         headers: {
             authorization: accesstoken,
         }}).then((res)=>{

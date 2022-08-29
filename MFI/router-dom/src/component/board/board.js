@@ -18,7 +18,7 @@ const Board = ()=>{
             document.location.href = "/"
         }
         else{
-            axios.get("http://localhost:3000/board/get",{
+            axios.get("http://localhost:3000/board",{
         headers: {
             authorization: token
         }}).then((res)=>{

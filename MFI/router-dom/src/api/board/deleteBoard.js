@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const deleteBoard=async(boardIdx,token)=>{
-    await axios.delete(`http://localhost:3000/board/delete/${boardIdx}`,{
+    await axios.delete(`http://localhost:3000/board/${boardIdx}`,{
         headers:{
             authorization: token
         }
