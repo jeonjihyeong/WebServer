@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom'
 import axios from "axios"
 import writeComment from "../../api/comment/writeComment"
 import { Button } from '@mui/material'
-import updateBoard from '../../api/board/updateBoard'
 import deleteBoard from '../../api/board/deleteBoard'
 import { NavLink } from 'react-router-dom'
 
@@ -54,7 +53,7 @@ function ViewBoardPage() {
  
   return (
     <div className='ViewBoard'>
-      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList} userInfo={user} />}
+        {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList} userInfo={user} />}
       </div>
   )
   
@@ -91,7 +90,7 @@ function BoardContent({data,token,commentList,userInfo}){
             variant="contained"
             sx={{
               backgroundColor:'rgb(180,184,243)'
-            }}><NavLink to={`/board/update2/${data.boardIdx}}`}>수정</NavLink></Button>
+            }}><NavLink to={`/board/update3/${data.boardIdx}}`}>수정</NavLink></Button>
           <Button
             onClick={handleDeleteBoard}
             variant="contained"

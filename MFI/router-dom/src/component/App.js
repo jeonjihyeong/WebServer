@@ -19,7 +19,6 @@ import UpdateBoard3 from './board/UpdateBoard3';
 
 
 function App() {
-  
   return (
   <Router>
     < >
