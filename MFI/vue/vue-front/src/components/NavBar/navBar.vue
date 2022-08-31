@@ -11,19 +11,19 @@
             </v-col>
             <v-col cols="1"></v-col>
             <v-col cols="1" class="navItem">
-                소개
+                    소개
             </v-col>
             <v-col cols="1"></v-col>
             <v-col cols="1" class="navItem">
-                공지
+                    공지
             </v-col>
             <v-col cols="1"></v-col>
             <v-col cols="1" class="navItem">
-                게시판
+                    게시판
             </v-col>
             <v-col cols="1"></v-col>
             <v-col cols="1" class="navItem">
-                증권 뉴스
+                    증권 뉴스
             </v-col>
             <v-col cols="2">
                 <v-btn class="blue white--text navButton">
@@ -57,10 +57,13 @@
         height: 70px;
         margin-bottom: 50px;
     }
-
+    a{
+        text-decoration: none; 
+        color: inherit;
+    }
     .navItem{
-        padding-top: 15px;
-        margin-top: 10px;
+        padding-top: 20px;
+        margin-top: 5px;
         vertical-align: center;
         font-size: 28px;
         font-weight: bold;
