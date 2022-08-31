@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@mdi/font": "5.9.55",
+    "roboto-fontface": "*",
+    "vuetify": "^3.0.0-beta.0",
+    "webfontloader": "^1.0.0"
+  },
+  "devDependencies": {
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.5.5",
+    "vuetify-loader": "^1.7.0",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
+  }
+}
