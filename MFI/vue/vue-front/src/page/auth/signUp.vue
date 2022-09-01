@@ -17,7 +17,7 @@
                     :type="show1 ? 'text' : 'password'"
                     :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                     @click:append="show1 = !show1"
-                    v-on:keyup.enter  ="login"
+                    @keyup.enter  ="login"
                 ></v-text-field>
                     <v-text-field
                     label="이메일"
