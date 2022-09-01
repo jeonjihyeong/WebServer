@@ -1,28 +1,24 @@
 <template>
     <v-container
          justify-center
-         grid-list-300px
+         grid-list-300spx
          class="nav">
-         <v-row>
+         <v-row id="pc">
             <v-col cols="2">
                 <a href="#">
                     <img height="60px" src="../../../../../front/MFIPNG/MFI 로고 수정본.png">
                 </a>
             </v-col>
-            <v-col cols="1"></v-col>
-            <v-col cols="1" class="navItem">
+            <v-col cols="2" class="navItem">
                     소개
             </v-col>
-            <v-col cols="1"></v-col>
-            <v-col cols="1" class="navItem">
+            <v-col cols="2" class="navItem">
                     공지
             </v-col>
-            <v-col cols="1"></v-col>
-            <v-col cols="1" class="navItem">
+            <v-col cols="2" class="navItem">
                     게시판
             </v-col>
-            <v-col cols="1"></v-col>
-            <v-col cols="1" class="navItem">
+            <v-col cols="2" class="navItem">
                     증권 뉴스
             </v-col>
             <v-col cols="2">
@@ -32,6 +28,14 @@
                 <v-btn class="blue white--text navButton">
                     로그인
                 </v-btn>
+            </v-col>
+        </v-row>
+        <!-- mobile -->
+        <v-row class="mobile_item">
+            <v-col>
+                <a href="#">
+                    <img height="60px" src="../../../../../front/MFIPNG/MFI 로고 수정본.png">
+                </a>
             </v-col>
         </v-row>
 
@@ -49,7 +53,22 @@
     }
 </script>
 
-<style>
+<style scoped>
+@media all and (max-width:767px) {
+    #pc, .pc_margin, .pc_item{
+        display: none;
+    }
+}
+@media all and (max-width:1023px) {
+    #pc, .pc_margin, .pc_item{
+        display: none;
+    }
+}
+@media all and (min-width:1024px) {
+    .mobile_item{
+        display: none;
+    }
+}
     .nav{
         display: flex;
         text-align: center;
