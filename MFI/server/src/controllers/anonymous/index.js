@@ -35,6 +35,7 @@ const signup = async(req,res)=>{
         res.send({data: 1})
       }catch(err){
         console.log(err);
+        res.send({message:`ERROR: ${err}`});
       }
     }
   }

@@ -2,7 +2,7 @@
     <v-app class="v-app">
         <NavBar></NavBar>
         <main class="main">
-            <SignIn></SignIn>
+            <SignUp></SignUp>
         </main>
         <Footer_ />
     </v-app>
@@ -10,12 +10,11 @@
 
 <script>
 import NavBar from '@/components/NavBar/navBar.vue';
-import signIn from '../auth/signIn.vue';
-import SignIn from '../auth/signIn.vue';
 import Footer_ from '@/components/Footer/Footer_.vue';
+import SignUp from '@/page/auth/signUp.vue';
     export default {
     name: "mainPage",
-    components: { NavBar, signIn, SignIn, Footer_ }
+    components: { NavBar, SignUp, Footer_ }
 }
 </script>
 
