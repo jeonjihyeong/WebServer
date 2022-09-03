@@ -27,7 +27,7 @@
         <v-row>
             <v-col cols="3" class="signInNav"><a>아이디 찾기</a></v-col>
             <v-col cols="4" class="signInNav"><a>비밀번호 찾기</a></v-col>
-            <v-col cols="3" class="signInNav"><a>회원 가입</a></v-col>
+            <v-col cols="3" class="signInNav"><router-link to="/signUp">회원 가입</router-link></v-col>
             <v-col cols="1"><v-btn class="blue white--text button" @click="login()">로그인</v-btn></v-col>
         </v-row>
     </v-container>

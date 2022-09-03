@@ -14,10 +14,9 @@
                     label="비밀번호"
                     v-model="pw"
                     hide-details="auto"
-                    :type="show1 ? 'text' : 'password'"
-                    :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                    @click:append="show1 = !show1"
-                    @keyup.enter  ="login"
+                    :type="show ? 'text' : 'password'"
+                    :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                    @click:append="show = !show"
                 ></v-text-field>
                     <v-text-field
                     label="이메일"
@@ -58,7 +57,7 @@ import Axios from 'axios';
                 name: '',
                 nickname: '',
                 age: '',
-                show1: false,
+                show: false,
             }
         },
         methods: {

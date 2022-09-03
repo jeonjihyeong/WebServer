@@ -5,29 +5,50 @@
          class="nav">
          <v-row id="pc">
             <v-col cols="2">
-                <a href="#">
+                <router-link to="/main">
                     <img height="60px" src="../../../../../front/MFIPNG/MFI 로고 수정본.png">
-                </a>
-            </v-col>
-            <v-col cols="2" class="navItem">
-                    소개
-            </v-col>
-            <v-col cols="2" class="navItem">
-                    공지
-            </v-col>
-            <v-col cols="2" class="navItem">
-                    게시판
-            </v-col>
-            <v-col cols="2" class="navItem">
-                    증권 뉴스
+                </router-link>
             </v-col>
             <v-col cols="2">
-                <v-btn class="blue white--text navButton">
-                    내 정보
-                </v-btn>
-                <v-btn class="blue white--text navButton">
-                    로그인
-                </v-btn>
+                <router-link to="/info">
+                    <div class="navItem">
+                        소개
+                    </div>
+                </router-link>
+            </v-col>
+            <v-col cols="2">
+                <router-link to="/info">
+                    <div class="navItem">
+                        공지
+                    </div>
+                </router-link>
+            </v-col>
+            <v-col cols="2">
+                <router-link to="/info">
+                    <div class="navItem">
+                        게시판
+                    </div>
+                </router-link>
+            </v-col>
+            <v-col cols="2">
+                <router-link to="/info">
+                    <div class="navItem">
+                        뉴스
+                    </div>
+                </router-link>
+            </v-col>
+
+            <v-col cols="2">
+                <router-link to="/user">
+                    <v-btn class="blue white--text navButton">
+                        내 정보
+                    </v-btn>
+                </router-link>
+                <router-link to="/signIn">
+                    <v-btn class="blue white--text navButton">
+                        로그인
+                    </v-btn>
+                </router-link>
             </v-col>
         </v-row>
         <!-- mobile -->
@@ -76,18 +97,17 @@
         height: 70px;
         margin-bottom: 50px;
     }
-    a{
-        text-decoration: none; 
-        color: inherit;
-    }
+    
+    
     .navItem{
-        padding-top: 20px;
+        padding-top: 7px;
         margin-top: 5px;
         vertical-align: center;
         font-size: 28px;
         font-weight: bold;
         border-radius: 7px;
         align-items: center;
+        color: rgb(0, 0, 0);
     }
     .navItem:hover{
         transform: translateY(-2px);
