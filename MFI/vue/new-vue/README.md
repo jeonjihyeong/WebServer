@@ -1,4 +1,4 @@
-# vue-3.0
+# new-vue
 
 ## Project setup
 ```
