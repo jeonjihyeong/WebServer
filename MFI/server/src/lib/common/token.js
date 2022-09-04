@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
 
+// 토큰해석
 const decodeToken =async(anyToken)=>{
     const decodedToken = jwt.decode(anyToken, 'aaa',{
         algorithm: 'HS256',
@@ -8,6 +9,7 @@ const decodeToken =async(anyToken)=>{
     return decodedToken;
 }
 
+//  토큰생성
 const signToken = async(payload) => {
     try{
         const result = jwt.sign(payload, 'aaa',{
@@ -21,6 +23,7 @@ const signToken = async(payload) => {
   return result
 }
 
+// 토큰 검증
 const verifyToken = async(anyToken)=>{
     try {
         jwt.verify(anyToken, 'aaa',{

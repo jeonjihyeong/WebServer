@@ -62,6 +62,7 @@ const deleteBoard = async(boardIdx)=>{
     return
 }
 
+// 게시판 수정
 const updateBoard = async(boardIdx)=>{
     try{
         await models['board'].update({

@@ -21,6 +21,7 @@ const get = async(req, res)=>{
         res.send({data:result});
     }catch(err){
         console.log(err)
+        res.send({message:err})
     }
 }
 

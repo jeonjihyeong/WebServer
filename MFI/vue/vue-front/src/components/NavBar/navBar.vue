@@ -24,7 +24,7 @@
                 </router-link>
             </v-col>
             <v-col cols="2">
-                <router-link to="/info">
+                <router-link to="/board">
                     <div class="navItem">
                         게시판
                     </div>
