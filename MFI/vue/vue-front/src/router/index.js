@@ -28,6 +28,7 @@ const router=new VueRouter({
     },{
         path:'/board/:boardIdx',
         component: oneBoard,
+        name: 'Board'
     }
 ]
 })

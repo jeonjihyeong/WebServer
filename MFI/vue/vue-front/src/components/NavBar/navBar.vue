@@ -44,7 +44,10 @@
                         내 정보
                     </v-btn>
                 </router-link>
-                <router-link to="/signIn">
+                <v-btn v-if="token()" class="blue white--text navButton" @click="logOut()">
+                    로그아웃
+                </v-btn>
+                <router-link v-if="!token()" to="/signIn">
                     <v-btn class="blue white--text navButton">
                         로그인
                     </v-btn>
@@ -70,6 +73,20 @@
             return {
                 price: 60,
             }
+        },
+        methods: {
+            logOut() {
+                localStorage.removeItem("accessToken")
+                location.href='/'
+            },
+            token(){
+                let accessToken =localStorage.getItem("accessToken");
+                if (accessToken===null){
+                    return false
+                }return true
+
+            }
+            
         },
     }
 </script>
@@ -117,8 +134,8 @@
 
     .navButton{
         margin-top: 15px;
-        margin-right: 25px;
-        font-size: 20px;
+        margin-right: 20px;
+        font-size: 18px;
         font-weight: bold;
         border: none;
         border-radius: 15px;
