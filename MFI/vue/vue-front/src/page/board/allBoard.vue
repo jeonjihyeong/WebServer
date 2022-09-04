@@ -19,11 +19,13 @@
             <v-col cols="3" class="item">
                 게시 날짜
             </v-col>
-                <div>
-                    {{user}}
-                </div>
         </v-row>
-        <v-row><BoardList :name="name"/></v-row>
+        <BoardList v-for="(item, index) in allBoardList" :key="index"
+            :boardIdx = 'item.boardIdx'
+            :index='index'
+            :name='item.user.name'
+            :title='item.title'
+            :created='item.created.substring(0,10)'/>
     </v-container>
 </template>
 
@@ -35,20 +37,16 @@
     
     data() {
         return {
-            name: "jihyeong",
-            user:this.result,
+            userName: "jihyeong",
+            allBoardList:{},
         };
     },
     
     components: { BoardList },
     
-    methods: {
-        getBoardList() {
-            this.getBoard();
-        },
-        async getBoard(){
-    let token = localStorage.getItem("accessToken")
-    await Axios.get("http://localhost:3000/board",{
+    async created () {
+        let token = localStorage.getItem("accessToken");
+        await Axios.get("http://localhost:3000/board",{
         headers:{
             authorization: token,
         }
@@ -62,18 +60,16 @@
             return 0;
         }
         console.log(resData.data[1]);
+        this.allBoardList=res.data.data
         return resData;
 
     }).catch((err)=>{
         console.log(err);
         return 0;
     })
-        }
+
     },
-    async created(){
-        const result =await this.getBoardList();
-        return result
-    }
+    
 }
 </script>
 
@@ -81,7 +77,7 @@
     .boardContent{
         justify-content: center;
         width: 80%;
-        margin-top: 100px;
+        margin-top: 30px;
     }
     .boardTitle{
         text-align: left;
