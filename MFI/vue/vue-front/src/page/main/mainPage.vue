@@ -33,5 +33,6 @@ import Footer_ from '@/components/Footer/Footer_.vue';
         vertical-align: center;
         min-height: 800px;
         height: auto;
+        margin-bottom: 50px;
     }
 </style>
