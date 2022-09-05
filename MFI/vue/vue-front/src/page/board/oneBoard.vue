@@ -11,6 +11,13 @@
         <v-row class="one_board_content">
             {{one_board_data.content}}
         </v-row>
+        <v-row v-if="one_board_data.userIdx===access_user.userIdx" class="boardBtn">
+            <v-col>
+                <v-btn class="blue white--text button">삭제</v-btn>
+                <v-btn class="blue white--text button">수정</v-btn>
+            </v-col>
+        </v-row>
+        <v-row></v-row>
         <br><br>
         <v-row class='boardTitle'>
             댓글
@@ -27,6 +34,7 @@
                     label="댓글 작성"
                     v-model="comment"
                     hide-details="auto"
+                    @keyup.enter  ="Comment_write()"
                 >
                 </v-text-field>
             </v-col>
@@ -38,6 +46,7 @@
                     @click="Comment_write()">작성</v-btn>
             </v-col>
         </v-row>
+
 
     </v-container>    
 </template>
@@ -54,7 +63,8 @@ import writeComment from '@/api/board/writeComment.js'
             one_board_data: {},
             one_board_user: {},
             comment_data: {},
-            access_user: {}
+            access_user: {},
+            accessToken: ''
         };
     },
     methods: {
@@ -64,6 +74,7 @@ import writeComment from '@/api/board/writeComment.js'
     },
     async beforeCreate() {
         const token = localStorage.getItem("accessToken");
+        this.accessToken = token
         Axios.get(`http://localhost:3000/board/${this.$route.params.boardIdx}`, {
             headers: {
                 authorization: token,
@@ -110,7 +121,9 @@ import writeComment from '@/api/board/writeComment.js'
         border: 2px solid #ccc;
         border-radius: 8px;
     }
-
+    .boardBtn{
+        text-align: right;
+    }
     .writeBoardTitle{
         font-size: 20px;
         font-weight: bold;

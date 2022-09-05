@@ -3,7 +3,7 @@
     <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
       <div>
       <button :class="{ 'is-active': isActive.bold() }" @click="commands.bold">
-          <font-awesome-icon icon="fa-solid fa-bars" />
+        bold
       </button>
 
       <button :class="{ 'is-active': isActive.italic() }" @click="commands.italic">
@@ -26,7 +26,7 @@
       </button>
     </div>
     </editor-menu-bar>
-    <editor-content :editor="editor" />
+    <editor-content :editor="editor" class="editor_content"/>
   </div>
 </template>
 
@@ -60,3 +60,10 @@ export default {
   },
 }
 </script>
+<style>
+  .editor_content{
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    height: 500px;
+  }
+</style>
