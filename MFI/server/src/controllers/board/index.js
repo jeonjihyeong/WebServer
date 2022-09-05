@@ -28,11 +28,12 @@ const get = async(req, res)=>{
 const getContent = async(req, res)=>{
     console.log("CONTROLLER: WORKING");
     const textId = req.params.boardIdx;
+    console.log("파라미터 전달 확인"+textId)
     try{
         const result = await boardService.getText(textId);
         const comment= await commentService.getComment(textId);
         const userInfo = req.writeUser
-        res.send({data:result, comment:comment,userInfo:userInfo});
+        res.send({data:result, comment:comment,accessUser:userInfo});
     }catch(err){
         console.log(err)
     }

@@ -33,13 +33,13 @@ function ViewBoardPage() {
             }else{
                 const boardInfo = res.data.data
                 const commentInfo = res.data.comment
-                const userInfo = res.data.userInfo
+                const accessUser = res.data.accessUser
                 console.log(boardInfo)
                 console.log(commentInfo)
-                console.log(userInfo)
+                console.log(accessUser)
                 setboardContent(boardInfo)
                 setcommentContent(commentInfo)
-                setuser(userInfo)
+                setuser(accessUser)
             }
         }).catch((err)=>{
           console.log(err);
@@ -54,12 +54,12 @@ function ViewBoardPage() {
  
   return (
     <div className='ViewBoard'>
-      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList} userInfo={user} />}
+      {boardContent.length===0 ? <>load</>  : <BoardContent data={boardContent} token={token} commentList={commentList} accessUser={user} />}
       </div>
   )
   
 }
-function BoardContent({data,token,commentList,userInfo}){
+function BoardContent({data,token,commentList,accessUser}){
   const [comment, setComment]=useState("")
   const handleComment =(e)=>{
     const {value}=e.target
@@ -86,7 +86,7 @@ function BoardContent({data,token,commentList,userInfo}){
           작성일: {data.created}
         </div>
         <div className='deleteButton'>
-          {userInfo.userIdx===data.userIdx && (<div>
+          {accessUser.userIdx===data.userIdx && (<div>
           <Button
             variant="contained"
             sx={{

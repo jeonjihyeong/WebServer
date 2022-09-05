@@ -25,7 +25,8 @@
             :index='index'
             :name='item.user.name'
             :title='item.title'
-            :created='item.created.substring(0,10)'/>
+            :created='item.created.substring(0,10)'
+            class="boardList"/>
     </v-container>
 </template>
 
@@ -83,7 +84,6 @@
         text-align: left;
         font-size: 25px;
         font-weight: bold;
-        margin-bottom: 30px;
         border-bottom: 3px solid rgb(53, 151, 255);
     }
     .item{
@@ -91,7 +91,10 @@
         font-weight: bold;
     }
     .table{
-        border-bottom:1px solid #ccc;
+        border-bottom:2px solid black;
         place-items: center;
+    }
+    .boardList{
+        border-bottom:1px solid #ccc;
     }
 </style>

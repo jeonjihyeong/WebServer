@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const writeComment=async(boardIdx,comment, token)=>{
-    await axios.post('http://localhost:3000/comment/write',{
+    await axios.post('http://localhost:3000/comment',{
             boardIdx,
             comment,
         },
