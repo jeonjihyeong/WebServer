@@ -5,6 +5,7 @@ import signIn from '../page/auth/signIn'
 import signUp from '../page/auth/signUp'
 import allBoard from '../page/board/allBoard'
 import oneBoard from '../page/board/oneBoard'
+import myInfo from '@/page/auth/myInfo.vue'
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,9 @@ const router=new VueRouter({
         path:'/board/:boardIdx',
         component: oneBoard,
         name: 'Board'
+    },{
+        path:'/info',
+        component: myInfo,
     }
 ]
 })
