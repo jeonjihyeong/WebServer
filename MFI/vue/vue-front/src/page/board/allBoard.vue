@@ -27,6 +27,13 @@
             :title='item.title'
             :created='item.created.substring(0,10)'
             class="boardList"/>
+        <v-row class="write_board_button">
+            <v-col>
+                <router-link to="/write">
+                    <v-btn class="blue white--text button">글 작성</v-btn>
+                </router-link>
+            </v-col>
+        </v-row>
     </v-container>
 </template>
 
@@ -96,5 +103,9 @@
     }
     .boardList{
         border-bottom:1px solid #ccc;
+    }
+
+    .write_board_button{
+        text-align: right;
     }
 </style>

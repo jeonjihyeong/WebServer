@@ -4,27 +4,43 @@
             내정보
         </v-row>
         <v-row class="infoItem">
-            이름
+            이름: {{user.name}}
         </v-row>
         <v-row class="infoItem">
-            나이
+            나이: {{user.age}}
         </v-row>
         <v-row class="infoItem">
-            닉네임
+            이메일: {{user.email}}
         </v-row>
         <v-row class="infoItem">
-            회원가입일
-        </v-row>
-        <v-row class="infoItem">
-            이메일
+            닉네임: {{user.nickname}}
         </v-row>
     </v-container>
 
 </template>
 
 <script>
+    import Axios from 'axios';
     export default {
-        
+        data() {
+            return {
+                user: {}
+            }
+        },
+        async created () {
+            let token = localStorage.getItem("accessToken");
+            Axios.get("http://localhost:3000/user",{
+                headers:{
+                    authorization:token
+                }
+            }).then((res)=>{
+                if("message" in res.data){
+                    console.log(res.data.message)
+                    return;
+                }
+                this.user = res.data.data
+            })
+        },
     }
 </script>
 

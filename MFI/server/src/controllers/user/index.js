@@ -9,6 +9,7 @@ const info = async(req,res) =>{
         res.send({data : userinfo});
     }catch(err){
         console.log(err)
+        res.send({message: err})
     }
 }
 
