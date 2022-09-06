@@ -98,7 +98,7 @@
         font-weight: bold;
     }
     .table{
-        border-bottom:2px solid black;
+        border-bottom:2px solid #aaa;
         place-items: center;
     }
     .boardList{

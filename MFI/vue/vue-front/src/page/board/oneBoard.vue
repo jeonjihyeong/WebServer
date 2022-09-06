@@ -13,7 +13,7 @@
         </v-row>
         <v-row v-if="one_board_data.userIdx===access_user.userIdx" class="boardBtn">
             <v-col>
-                <v-btn class="blue white--text button">삭제</v-btn>
+                <v-btn class="blue white--text button" @click="deleteBoard()">삭제</v-btn>
                 <v-btn class="blue white--text button">수정</v-btn>
             </v-col>
         </v-row>
@@ -70,6 +70,28 @@ import writeComment from '@/api/board/writeComment.js'
     methods: {
         Comment_write() {
             writeComment(this.comment, this.$route.params.boardIdx)
+        },
+        deleteBoard(){
+            const token = localStorage.getItem("accessToken")
+            Axios.delete(`http://localhost:3000/board/${this.$route.params.boardIdx}`,{
+                headers: {
+                    authorization: token,
+                }
+            }).then((res)=>{
+                if(res.data.message==="Success"){
+                    console.log("성공하였습니다.")
+                    alert("글을 삭제하였습니다.")
+                    location.href='/board'
+                    return;
+                }
+                if(res.data.message==="Failed"){
+                    console.log("실패하였습니다.")
+                    return;
+                }
+                console.log(res.data);
+
+
+            })
         }
     },
     async beforeCreate() {
