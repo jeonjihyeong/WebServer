@@ -22,7 +22,7 @@
         </v-row>
         <BoardList v-for="(item, index) in allBoardList" :key="index"
             :boardIdx = 'item.boardIdx'
-            :index='index'
+            :index='index+1'
             :name='item.user.name'
             :title='item.title'
             :created='item.created.substring(0,10)'
