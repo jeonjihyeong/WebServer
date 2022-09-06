@@ -130,7 +130,9 @@
     "range-parser": "^1.2.1",
     "raw-body": "^2.5.1",
     "rc": "^1.2.8",
-    "sequelize": "^6.21.2"
+    "sequelize": "^6.21.2",
+    "winston": "^3.8.1",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

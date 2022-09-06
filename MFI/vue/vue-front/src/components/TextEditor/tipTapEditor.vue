@@ -26,7 +26,8 @@
       </button>
     </div>
     </editor-menu-bar>
-    <editor-content :editor="editor" class="editor_content"/>
+    <editor-content :editor="editor" class="editor_content" v-on:change="dataa"/>
+    <div>{{dataa}}</div>
   </div>
 </template>
 
@@ -41,6 +42,7 @@ export default {
   },
   data() {
     return {
+      dataa:'',
       swMenubar: this.menubar,
       editor: new Editor({
         extensions: [
