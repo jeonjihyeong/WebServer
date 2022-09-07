@@ -7,9 +7,10 @@ const write = async(req,res)=>{
     try{
         console.log(req.writeUser.userIdx)
         await boardService.writeBoard(req.writeUser.userIdx,dataValue.title,dataValue.content)
-        res.send({data: 'success'})
+        res.send({data: 'Success'})
     }catch(err){
         console.err()
+        res.send({message:"Failed"})
     }
 }
 
@@ -21,7 +22,7 @@ const get = async(req, res)=>{
         res.send({data:result});
     }catch(err){
         console.log(err)
-        res.send({message:err})
+        res.send({message:"Failed"})
     }
 }
 
@@ -36,6 +37,7 @@ const getContent = async(req, res)=>{
         res.send({data:result, comment:comment,accessUser:userInfo});
     }catch(err){
         console.log(err)
+        res.send({message:"Failed"})
     }
 }
 
@@ -55,8 +57,8 @@ const updateContent = async(req,res)=>{
     console.log("CONTROLLER: WORKING");
     const boardIdx= req.params.boardIdx;
     try{
-        await boardService.updateBoard(boardIdx,req.body.content);
-        res.send({message:"Succcess"})
+        await boardService.updateBoard(boardIdx,req.body.title,req.body.content);
+        res.send({message:"Success"})
     }catch(err){
         res.send({message:"Failed"})
     }
