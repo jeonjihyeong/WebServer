@@ -11,13 +11,22 @@
         <v-row class="one_board_content">
             {{one_board_data.content}}
         </v-row>
+
         <v-row v-if="one_board_data.userIdx===access_user.userIdx" class="boardBtn">
             <v-col>
-                <v-btn class="blue white--text button" @click="deleteBoard()">삭제</v-btn>
-                <v-btn class="blue white--text button">수정</v-btn>
+                <v-btn class="blue white--text button" @click="deleteBoard()">
+                    삭제
+                </v-btn>
+                <router-link :to="{name:'Update', params :{boardxIdx:one_board_data.boardIdx}}">
+                    <v-btn class="blue white--text button">
+                        수정
+                    </v-btn>
+                </router-link>
             </v-col>
         </v-row>
+
         <v-row></v-row>
+
         <br><br>
         <v-row class='boardTitle'>
             댓글
@@ -72,6 +81,7 @@ import writeComment from '@/api/board/writeComment.js'
             writeComment(this.comment, this.$route.params.boardIdx)
         },
         deleteBoard(){
+            // 모달창 띄워주는 함수를 추가하고 거기서 예를 선택할 시 삭제 함수 실행하는 방식으로 바꾸기
             const token = localStorage.getItem("accessToken")
             Axios.delete(`http://localhost:3000/board/${this.$route.params.boardIdx}`,{
                 headers: {
@@ -108,7 +118,6 @@ import writeComment from '@/api/board/writeComment.js'
                 location.href = "/";
                 return 0;
             }
-            console.log(res.data.comment);
             this.one_board_data = res.data.data;
             this.one_board_user = res.data.data.user;
             this.comment_data = res.data.comment;

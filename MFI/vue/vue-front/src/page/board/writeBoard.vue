@@ -1,5 +1,8 @@
 <template>
     <v-container class="editor">
+        <v-row class="boardTitle">
+            게시글 작성
+        </v-row>
         <v-row>
             <v-col>
                 <v-text-field

@@ -55,11 +55,11 @@ import axios from "axios"
                     pw: pw
                 }).then((res)=>{
                     if(res.data.data ==='idFailed'){
-                        alert('아이디 잘못');
+                        alert('아이디가 잘못입력되었습니다.');
                         return;
                     }
                     if(res.data.data ==='pwFailed'){
-                        alert('아이디 잘못');
+                        alert('비밀번호가 잘못입력되었습니다.');
                         return;
                     }else{
                         alert('로그인 성공');

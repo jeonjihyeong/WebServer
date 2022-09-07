@@ -22,6 +22,7 @@ const getBoard= async()=>{
     try{
         result = await models['board'].findAll({
             include:models['user'].name,
+            order:[['created','DESC']]
             
         })
         // res.data=result;
@@ -63,10 +64,11 @@ const deleteBoard = async(boardIdx)=>{
 }
 
 // 게시판 수정
-const updateBoard = async(boardIdx)=>{
+const updateBoard = async(boardIdx, title, content)=>{
     try{
         await models['board'].update({
-            content:newContent
+            title:title,
+            content:content
         },{
             where:{boardIdx:boardIdx}
         })

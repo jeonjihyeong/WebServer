@@ -7,6 +7,8 @@ import allBoard from '../page/board/allBoard'
 import oneBoard from '../page/board/oneBoard'
 import myInfo from '@/page/auth/myInfo.vue'
 import writeBoard from '@/page/board/writeBoard.vue'
+import updateBoard from '@/page/board/updateBoard.vue'
+
 Vue.use(VueRouter);
 
 const router=new VueRouter({
@@ -30,13 +32,16 @@ const router=new VueRouter({
         path:'/board/:boardIdx',
         component: oneBoard,
         name: 'Board'
+    },{ path:'/update/:boardIdx',
+        component: updateBoard,
+        name: 'Update'
     },{
         path:'/user',
         component: myInfo,
     },{
         path:'/write',
         component: writeBoard,
-    }
+    },
 
 ]
 })
