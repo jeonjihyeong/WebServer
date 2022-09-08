@@ -107,6 +107,7 @@
     "minimist": "^1.2.6",
     "ms": "^2.0.0",
     "negotiator": "^0.6.3",
+    "nodemailer": "^6.7.8",
     "nodemon": "^2.0.18",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
@@ -131,7 +132,7 @@
     "raw-body": "^2.5.1",
     "rc": "^1.2.8",
     "sequelize": "^6.21.2",
-    "winston": "^3.8.1",
+    "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1"
   },
   "scripts": {
