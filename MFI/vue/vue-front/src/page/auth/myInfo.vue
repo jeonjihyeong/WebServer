@@ -36,6 +36,8 @@
             }).then((res)=>{
                 if("message" in res.data){
                     console.log(res.data.message)
+                    alert("먼저 로그인을 해주세요");
+                    location.href = '/';
                     return;
                 }
                 this.user = res.data.data
