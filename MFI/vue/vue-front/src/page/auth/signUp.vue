@@ -33,14 +33,26 @@
                 v-model="age"
                 hide-details="auto"
                 ></v-text-field>
+
                 <v-text-field
                 label="이메일"
+                color="primary"
                 v-model="email"
                 hide-details="auto"
-            ></v-text-field><br>
+                >
+                    <template v-slot:append>
+                        <v-btn
+                            class="blue white--text button"
+                            v-on:click="sendMail()">
+                                인증
+                        </v-btn>
+                    </template>
+                </v-text-field><br>
                 <v-btn class="blue white--text" width="100%" v-on:click="signUp()">회원가입</v-btn>
             </v-col>
         </v-row>
+
+    
     </v-container>
 </template>
 
@@ -78,7 +90,15 @@ import Axios from 'axios';
                 }).catch((err)=>{
                     console.log(err);
                 })
-                
+            },
+            sendMail(){
+                Axios.post("http://localhost:3000/signup/mail",{
+                    email:this.email
+                }).then((res)=>{
+                    console.log(res.data.data);
+                }).catch((err)=>{
+                    console.log(err);
+                })
             }
         },
     }

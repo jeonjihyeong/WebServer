@@ -3,12 +3,13 @@ const jwt = require('jsonwebtoken')
 const {signToken}=require('../../lib/common/token')
 const mailSender = require('../../lib/common/mailer')
 const { randomString } = require('../../lib/common/numberGenerator')
+const {signUpMail,auth_key} =require('../../config/setMail')
+require('dotenv').config();
 
 const login = async(req, res) => {
     const data=req.body;
     const idData=await anonymousService.getUserId(data.id);
     if (idData===null){
-      
       console.log('hi')
       res.send ({data: 'idFailed'})
     }else {
@@ -44,11 +45,14 @@ const signup = async(req,res)=>{
   }
 
 const mail = async(req,res)=>{
-  const mail_data = req.body;
-  const ran_num = randomString();
-  console.log(ran_num)
-  await mailSender.sendGmail(mail_data, ran_num);
+  const mail_data = req.body.email;
+  const tempmail = "spdlqj7014@naver.com"
+  console.log(auth_key)
+  await mailSender.sendGmail(signUpMail, mail_data)
+  res.send({data:auth_key})
 }
+
+
 module.exports={
     login, signup, mail
 }
