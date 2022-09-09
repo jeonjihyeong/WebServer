@@ -18,26 +18,26 @@
                     :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                     @click:append="show = !show"
                 ></v-text-field>
-                    <v-text-field
-                    label="이메일"
-                    v-model="email"
-                    hide-details="auto"
+                <v-text-field
+                label="이름"
+                v-model="name"
+                hide-details="auto"
                 ></v-text-field>
-                    <v-text-field
-                    label="이름"
-                    v-model="name"
-                    hide-details="auto"
+                <v-text-field
+                label="닉네임"
+                v-model="nickname"
+                hide-details="auto"
                 ></v-text-field>
-                    <v-text-field
-                    label="닉네임"
-                    v-model="nickname"
-                    hide-details="auto"
+                <v-text-field
+                label="나이"
+                v-model="age"
+                hide-details="auto"
                 ></v-text-field>
-                    <v-text-field
-                    label="나이"
-                    v-model="age"
-                    hide-details="auto"
-                ></v-text-field><br>
+                <v-text-field
+                label="이메일"
+                v-model="email"
+                hide-details="auto"
+            ></v-text-field><br>
                 <v-btn class="blue white--text" width="100%" v-on:click="signUp()">회원가입</v-btn>
             </v-col>
         </v-row>

@@ -4,7 +4,6 @@ const token = require("./token")
 const validateToken = async(req,res,next)=>{
     let accessToken = req.headers.authorization;
     console.log("MIDDLE_WARE: WORKING")
-    console.log(accessToken)
     try{
         if(!await token.verifyToken(accessToken)){
             res.send({message : "expired token"})

@@ -3,13 +3,9 @@ const senderInfo = require('../../config/senderInfo.json');
 // 메일발송 객체
 const mailSender = {
   // 메일발송 함수
-  sendGmail: function (param) {
+  sendGmail: function () {
     var transporter = nodemailer.createTransport({
       service: 'gmail',   // 메일 보내는 곳
-      prot: 587,
-      host: 'smtp.gmlail.com',  
-      secure: false,  
-      requireTLS: true ,
       auth: {
         user: senderInfo.user,  // 보내는 메일의 주소
         pass: senderInfo.pass   // 보내는 메일의 비밀번호
@@ -31,7 +27,7 @@ const mailSender = {
         console.log('Email sent: ' + info.response);
       }
     });
-
+    console.log("동작")
   }
 }
 
