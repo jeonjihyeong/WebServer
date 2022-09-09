@@ -1,22 +1,21 @@
 const nodemailer = require('nodemailer');
-const senderInfo = require('../../config/senderInfo.json');
 // 메일발송 객체
 const mailSender = {
   // 메일발송 함수
-  sendGmail: function () {
+  sendGmail: function (param, toEmail) {
     var transporter = nodemailer.createTransport({
       service: 'gmail',   // 메일 보내는 곳
       auth: {
-        user: senderInfo.user,  // 보내는 메일의 주소
-        pass: senderInfo.pass   // 보내는 메일의 비밀번호
+        user: process.env.CLIENT_ID,  // 보내는 메일의 주소
+        pass: process.env.CLIENT_SECRET   // 보내는 메일의 비밀번호
       }
     });
     // 메일 옵션
     var mailOptions = {
-      from: senderInfo.user, // 보내는 메일의 주소
-      to: param.toEmail, // 수신할 이메일
+      from: process.env.CLIENT_ID, // 보내는 메일의 주소
+      to: toEmail, // 수신할 이메일
       subject: param.subject, // 메일 제목
-      text: param.text // 메일 내용
+      html: param.html // 메일 내용
     };
     
     // 메일 발송    
