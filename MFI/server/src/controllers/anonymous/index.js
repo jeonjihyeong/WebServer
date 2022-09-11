@@ -46,10 +46,14 @@ const signup = async(req,res)=>{
 
 const mail = async(req,res)=>{
   const mail_data = req.body.email;
-  const tempmail = "spdlqj7014@naver.com"
   console.log(auth_key)
-  await mailSender.sendGmail(signUpMail, mail_data)
-  res.send({data:auth_key})
+  try{
+    mailSender.sendGmail(signUpMail, mail_data)
+    res.send({data:auth_key})
+  }catch(err){
+    console.log(err);
+    res.send({message:"FAIL_SEND_EMAIL"})
+  }
 }
 
 
