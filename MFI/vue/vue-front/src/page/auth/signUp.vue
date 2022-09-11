@@ -47,6 +47,21 @@
                                 인증
                         </v-btn>
                     </template>
+                </v-text-field>
+                <v-text-field
+                v-if="show1"
+                label="인증번호를 입력해주세요."
+                color="primary"
+                v-model="auth_input"
+                hide-details="auto"
+                >
+                    <template v-slot:append>
+                        <v-btn
+                            class="blue white--text button"
+                            v-on:click="checkAuth()">
+                                확인
+                        </v-btn>
+                    </template>
                 </v-text-field><br>
                 <v-btn class="blue white--text" width="100%" v-on:click="signUp()">회원가입</v-btn>
             </v-col>
@@ -70,35 +85,61 @@ import Axios from 'axios';
                 nickname: '',
                 age: '',
                 show: false,
-            }
+                show1: false,
+                check: false,
+                auth_key:'',
+                auth_input:'',
+            }  
         },
         methods: {
             signUp() {
-                Axios.post("http://localhost:3000/signup",{
-                    id: this.id,
-                    pw: this.pw,
-                    age: this.age,
-                    email: this.email,
-                    name: this.name,
-                    nickname: this.nickname,
-                }).then((res)=>{
+                if (this.check){
+                    Axios.post("http://localhost:3000/signup",{
+                        id: this.id,
+                        pw: this.pw,
+                        age: this.age,
+                        email: this.email,
+                        name: this.name,
+                        nickname: this.nickname,
+                    }).then((res)=>{
                     if (res.data.data===0){
                         alert("아이디가 이미 존재합니다.")
                     }else{
                         alert("회원가입에 성공하였습니다.")
+                        document.location.href = '/'
                     }
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
+                }else{
+                    alert("이메일 인증을 해주세요.");
+                    return;
+                }
+                
+            },
+            sendMail(){
+                this.show1=true;
+                Axios.post("http://localhost:3000/signup/mail",{
+                    email:this.email
+                }).then((res)=>{
+                    if("message" in res.data){
+                        alert("메시지를 전송하지 못하였습니다.");
+                        return;
+                    }
+                    alert('이메일을 전송하였습니다.')
+                    this.auth_key=res.data.data;
+                    
                 }).catch((err)=>{
                     console.log(err);
                 })
             },
-            sendMail(){
-                Axios.post("http://localhost:3000/signup/mail",{
-                    email:this.email
-                }).then((res)=>{
-                    console.log(res.data.data);
-                }).catch((err)=>{
-                    console.log(err);
-                })
+            checkAuth(){
+                if(this.auth_input==this.auth_key){
+                    alert("확인되었습니다.");
+                    this.check=true;
+                    return;
+                }
+                alert("인증번호가 틀렸습니다.")
             }
         },
     }
