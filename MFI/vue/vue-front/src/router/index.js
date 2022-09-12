@@ -8,6 +8,9 @@ import oneBoard from '../page/board/oneBoard'
 import myInfo from '@/page/auth/myInfo.vue'
 import writeBoard from '@/page/board/writeBoard.vue'
 import updateBoard from '@/page/board/updateBoard.vue'
+import findId from "@/page/auth/findId"
+import findPw from "@/page/auth/findPw"
+
 
 Vue.use(VueRouter);
 
@@ -41,6 +44,12 @@ const router=new VueRouter({
     },{
         path:'/write',
         component: writeBoard,
+    },{
+        path:'/findId',
+        component: findId,
+    },{
+        path:'/findPw',
+        component: findPw,
     },
 
 ]
