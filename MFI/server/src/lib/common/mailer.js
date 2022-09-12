@@ -20,8 +20,9 @@ const mailSender = {
     
     // 메일 발송    
     transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
+      if (err) {
+        console.log(err);
+        return err;
       } else {
         console.log('Email sent: ' + info.response);
       }
