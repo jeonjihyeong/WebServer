@@ -118,15 +118,20 @@ import Axios from 'axios';
                 
             },
             sendMail(){
-                this.show1=true;
                 Axios.post("http://localhost:3000/signup/mail",{
                     email:this.email
                 }).then((res)=>{
                     if("message" in res.data){
-                        alert("메시지를 전송하지 못하였습니다.");
-                        return;
+                        if(res.data.message==="Already Existence"){
+                            alert("이미 존재하는 이메일입니다.");
+                            return;
+                        }else{
+                            alert("이메일을 전송하지 못하였습니다.");
+                            return;
+                        }
                     }
                     alert('이메일을 전송하였습니다.')
+                    this.show1=true;
                     this.auth_key=res.data.data;
                     
                 }).catch((err)=>{
