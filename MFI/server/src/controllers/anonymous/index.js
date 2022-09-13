@@ -2,8 +2,7 @@ const {anonymousService} =require('../../service')
 const jwt = require('jsonwebtoken')
 const {signToken}=require('../../lib/common/token')
 const mailSender = require('../../lib/common/mailer')
-const { randomString } = require('../../lib/common/numberGenerator')
-const {signUpMail,auth_key} =require('../../config/setMail')
+const {signUpMail,auth_key, findIdMail} =require('../../config/setMail')
 require('dotenv').config();
 
 const login = async(req, res) => {
@@ -44,7 +43,7 @@ const signup = async(req,res)=>{
     }
   }
 
-const mail = async(req,res)=>{
+const signUp_mail = async(req,res)=>{
   const mail_data = req.body.email;
   console.log(auth_key)
   try{
@@ -56,7 +55,47 @@ const mail = async(req,res)=>{
   }
 }
 
+const findId_mail = async(req,res)=>{
+  const mail_data = req.body.email;
+  const setFIndIdMail = findIdMail(req.body.name,req.user)
+  try{
+    mailSender.sendGmail(setFIndIdMail, mail_data)
+    res.send({data:'success'})
+  }catch(err){
+    console.log(err);
+    res.send({message:"FAIL_SEND_EMAIL"})
+  }
+}
+
+const findPw_mail = async(req,res)=>{
+  const mail_data = req.body.email;
+  console.log(auth_key)
+  try{
+    mailSender.sendGmail(signUpMail, mail_data)
+    res.send({data:auth_key})
+  }catch(err){
+    console.log(err);
+    res.send({message:"FAIL_SEND_EMAIL"})
+  }
+}
+
+const changePw = async(req,res)=>{
+  const mail_data = req.body.email;
+  console.log(auth_key)
+  try{
+    mailSender.sendGmail(signUpMail, mail_data)
+    res.send({data:auth_key})
+  }catch(err){
+    console.log(err);
+    res.send({message:"FAIL_SEND_EMAIL"})
+  }
+}
 
 module.exports={
-    login, signup, mail
+    login,
+    signup, 
+    signUp_mail,
+    findId_mail,
+    findPw_mail,
+    changePw
 }

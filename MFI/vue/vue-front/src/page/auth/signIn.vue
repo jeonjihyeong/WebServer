@@ -82,9 +82,7 @@ import axios from "axios"
     margin-top:200px;
 }
 .loginText{
-    margin: auto;
     margin-bottom: 15px;
-    width: 21%;
     font-size: 25px;
     font-weight: bold;
 }    

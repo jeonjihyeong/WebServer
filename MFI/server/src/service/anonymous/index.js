@@ -33,9 +33,24 @@ const getUserId=async(id)=>{
     return results;
 }
 
+const getUserEmail=async(email)=>{
+    let results;
+    try{
+        results = await models['user'].findOne({
+            where:{
+                email : email
+            }
+        })
+    }catch(err){
+        console.log(err)
+    }
+    return results;
+}
+
 module.exports={
     getUserId,
-    saveUser
+    saveUser,
+    getUserEmail
 }
 
 
