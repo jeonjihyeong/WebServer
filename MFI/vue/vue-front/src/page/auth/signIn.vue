@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import Axios from "axios"
     export default {
         
         name:"signIn",
@@ -50,7 +50,7 @@ import axios from "axios"
             login() {
                 const id = this.id;
                 const pw = this.pw;
-                axios.post("http://localhost:3000/login",{
+                Axios.post("http://localhost:3000/login",{
                     id: id,
                     pw: pw
                 }).then((res)=>{
