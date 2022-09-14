@@ -117,8 +117,9 @@ import Axios from 'axios';
                 }
                 
             },
+
             sendMail(){
-                Axios.post("http://localhost:3000/signup/mail",{
+                Axios.post("http://localhost:3000/signUpMail",{
                     email:this.email
                 }).then((res)=>{
                     if("message" in res.data){
@@ -138,6 +139,7 @@ import Axios from 'axios';
                     console.log(err);
                 })
             },
+            
             checkAuth(){
                 if(this.auth_input==this.auth_key){
                     alert("확인되었습니다.");
@@ -152,7 +154,7 @@ import Axios from 'axios';
 
 <style>
     .signUp{
-        width: 30%;
+        width: 600px;
         margin-top:100px;
     }
 </style>

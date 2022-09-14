@@ -47,10 +47,22 @@ const getUserEmail=async(email)=>{
     return results;
 }
 
+const changePw = async(newPw,id)=>{
+    try{
+        results = await models['user'].update({
+            pw:newPw,
+        },{
+            where:{id:id}
+        })
+    }catch(err){
+        console.log(err);
+    }
+}
 module.exports={
     getUserId,
     saveUser,
-    getUserEmail
+    getUserEmail,
+    changePw
 }
 
 

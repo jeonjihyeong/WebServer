@@ -2,9 +2,10 @@ const {anonymousService} =require('../../service')
 const jwt = require('jsonwebtoken')
 const {signToken}=require('../../lib/common/token')
 const mailSender = require('../../lib/common/mailer')
-const {signUpMail,auth_key, findIdMail} =require('../../config/setMail')
+const {signUpMail,auth_key, findIdMail,findPwMail} =require('../../config/setMail')
 require('dotenv').config();
 
+// 로그인
 const login = async(req, res) => {
     const data=req.body;
     const idData=await anonymousService.getUserId(data.id);
@@ -25,7 +26,7 @@ const login = async(req, res) => {
         }
     }
   }
-
+// 회원가입
 const signup = async(req,res)=>{
     const data= req.body;
     const duplicateCheck= await anonymousService.getUserId(data.id);
@@ -42,7 +43,7 @@ const signup = async(req,res)=>{
       }
     }
   }
-
+// 회원가입 인증 메일
 const signUp_mail = async(req,res)=>{
   const mail_data = req.body.email;
   console.log(auth_key)
@@ -55,6 +56,7 @@ const signUp_mail = async(req,res)=>{
   }
 }
 
+// 아이디 찾기 메일
 const findId_mail = async(req,res)=>{
   const mail_data = req.body.email;
   const setFIndIdMail = findIdMail(req.body.name,req.user)
@@ -67,11 +69,13 @@ const findId_mail = async(req,res)=>{
   }
 }
 
+// 비밀번호 찾기 메일
 const findPw_mail = async(req,res)=>{
   const mail_data = req.body.email;
+  const setFIndPwMail = findPwMail(req.body.name)
   console.log(auth_key)
   try{
-    mailSender.sendGmail(signUpMail, mail_data)
+    mailSender.sendGmail(setFIndPwMail, mail_data)
     res.send({data:auth_key})
   }catch(err){
     console.log(err);
@@ -79,16 +83,17 @@ const findPw_mail = async(req,res)=>{
   }
 }
 
+// 비밀번호 변경
 const changePw = async(req,res)=>{
-  const mail_data = req.body.email;
-  console.log(auth_key)
+  console.log(req.data)
   try{
-    mailSender.sendGmail(signUpMail, mail_data)
-    res.send({data:auth_key})
+    anonymousService.changePw(req.body.new_pw,req.body.id);
+    res.send({data:"SUCCESS"})
   }catch(err){
     console.log(err);
-    res.send({message:"FAIL_SEND_EMAIL"})
+    res.send({message:"FAIL_CHANGE_PASSWORD"})
   }
+
 }
 
 module.exports={

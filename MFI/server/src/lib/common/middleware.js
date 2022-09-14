@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const token = require("./token");
 const {anonymousService} =require('../../service');
-const { getUserEmail } = require("../../service/anonymous");
 
+// 토큰확인
 const validateToken = async(req,res,next)=>{
     let accessToken = req.headers.authorization;
     console.log("MIDDLE_WARE: WORKING")
@@ -19,7 +19,7 @@ const validateToken = async(req,res,next)=>{
     }
 }
 
-
+// 회원가입시 중복되는 메일 있는지 확인
 const checkDuplicateMail = async(req,res,next)=>{
     let inputEmail = req.body.email;
     console.log(inputEmail)
@@ -38,6 +38,7 @@ const checkDuplicateMail = async(req,res,next)=>{
     }
 }
 
+// 아이디 찾기 할때 존재하는 회원인지 확인
 const checkExistenceUser=async(req,res,next)=>{
     let inputUser = req.body;
     try{
@@ -51,6 +52,13 @@ const checkExistenceUser=async(req,res,next)=>{
             console.log("Not Correct Name");
             res.send({message:"Not Correct Name"})
             return;
+        }
+        if('id' in inputUser){
+            if(getUserEmailResult.id!==inputUser.id){
+                console.log("Not Correct Id");
+                res.send({message:"Not Correct Id"})
+                return;
+            }
         }
         req.user=getUserEmailResult.id;
         next();
