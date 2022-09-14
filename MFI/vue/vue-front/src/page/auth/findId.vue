@@ -7,14 +7,14 @@
         </v-row>
         <v-row>
             <v-text-field
-                label="이름"
+                label="이름 입력"
                 v-model="name"
                 hide-details="auto"
             ></v-text-field>
         </v-row>
         <v-row>
             <v-text-field
-                label="이메일"
+                label="이메일 입력"
                 v-model="email"
                 hide-details="auto"
                 @keyup.enter  ="findIdMail()"
@@ -48,7 +48,7 @@ import Axios from 'axios';
         },
         methods: {
             findIdMail() {
-                Axios.post("http://localhost:3000/findId/mail",{
+                Axios.post("http://localhost:3000/findId",{
                     name:this.name,
                     email:this.email,
                 }).then((res)=>{
@@ -76,7 +76,7 @@ import Axios from 'axios';
 
 <style lang="scss" scoped>
     .findIdCon{
-        width: 400px;
+        width: 500px;
         margin-top: 200px;
     }
     .findIdText{
