@@ -28,6 +28,9 @@ const create = async (sequelize) => {
         nickname: {
             type: DataTypes.STRING
         },
+        salt: {
+            type: DataTypes.STRING
+        },
     }, {
         // Other model options go here   timestamps: false,
         freezeTableName: true,
