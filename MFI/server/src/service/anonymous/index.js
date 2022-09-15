@@ -1,9 +1,10 @@
+const { salt } = require('../../lib/common/hashing');
 const {models, Op}= require('../../lib/db')
 // const db=require('../lib')
 // const models=db.models
 // const Op=db.Op
 
-const saveUser=async(id, pw,age,email,name,nickname)=>{
+const saveUser=async(id, pw,age,email,name,nickname,salt)=>{
     try{
         await models['user'].create({
             id: id,
@@ -12,6 +13,7 @@ const saveUser=async(id, pw,age,email,name,nickname)=>{
             email: email,
             name: name,
             nickname: nickname,
+            salt: salt,
         })
     }catch(err){
         console.log(err);

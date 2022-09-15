@@ -119,7 +119,7 @@ import Axios from 'axios';
             },
 
             sendMail(){
-                Axios.post("http://localhost:3000/signUpMail",{
+                Axios.post("http://localhost:3000/signuUpMail",{
                     email:this.email
                 }).then((res)=>{
                     if("message" in res.data){
