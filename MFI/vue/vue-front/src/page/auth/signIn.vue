@@ -50,7 +50,8 @@ import Axios from "axios"
             login() {
                 const id = this.id;
                 const pw = this.pw;
-                Axios.post("http://localhost:3000/login",{
+                console.log(process.env.VUE_APP_SERVER_URL)
+                Axios.post(`${process.env.VUE_APP_SERVER_URL}/login`,{
                     id: id,
                     pw: pw
                 }).then((res)=>{
