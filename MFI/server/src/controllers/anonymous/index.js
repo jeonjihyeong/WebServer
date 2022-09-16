@@ -10,21 +10,26 @@ require('dotenv').config();
 const login = async(req, res) => {
     const data=req.body;
     const idData=await anonymousService.getUserId(data.id);
-    const decodePW = decryptionPassWord(data.pw,idData.salt);
-    if (idData===null){
-      res.send ({data: 'idFailed'})
-    }else {
-        const pwData=idData.dataValues.pw
-        if(decodePW!==pwData){
-            res.send({data: 'pwFailed'})
-        }else {
-          delete idData.dataValues.pw;
-          const payload = {
-            ...idData.dataValues
+    try{
+      const decodePW = decryptionPassWord(data.pw,idData.salt);
+      if (idData===null){
+        res.send ({data: 'idFailed'})
+      }else {
+          const pwData=idData.dataValues.pw
+          if(decodePW!==pwData){
+              res.send({data: 'pwFailed'})
+          }else {
+            delete idData.dataValues.pw;
+            const payload = {
+              ...idData.dataValues
+            }
+            const token = await signToken(payload);
+              res.send({data: token});
           }
-          const token = await signToken(payload);
-            res.send({data: token});
-        }
+      }
+    }catch(err){
+      console.err(err);
+      res.send({message: 'idFailed'})
     }
   }
 // 회원가입
@@ -88,9 +93,9 @@ const findPw_mail = async(req,res)=>{
 
 // 비밀번호 변경
 const changePw = async(req,res)=>{
-  console.log(req.data)
+  const incodingPw = encryptionPassWord(req.new_pw);
   try{
-    anonymousService.changePw(req.body.new_pw,req.body.id);
+    anonymousService.changePw(incodingPw,req.body.id,salt);
     res.send({data:"SUCCESS"})
   }catch(err){
     console.log(err);

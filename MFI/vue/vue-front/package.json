@@ -13,13 +13,15 @@
     "@tiptap/starter-kit": "^2.0.0-beta.191",
     "@tiptap/vue-2": "^2.0.0-beta.84",
     "core-js": "^3.8.3",
+    "dotenv": "^16.0.2",
     "prosemirror-model": "^1.18.1",
     "tiptap": "^1.32.2",
     "tiptap-extensions": "^1.35.2",
     "tiptap-vuetify": "^2.24.0",
     "vue": "^2.6.14",
     "vue-router": "^3.6.4",
-    "vuetify": "^2.6.9"
+    "vuetify": "^2.6.9",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

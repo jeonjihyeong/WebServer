@@ -56,10 +56,54 @@
         </v-row>
         <!-- mobile -->
         <v-row class="mobile_item">
-            <v-col>
-                <a href="#">
+            <v-col cols="2">
+                <router-link to="/main">
                     <img height="60px" src="../../../../../front/MFIPNG/MFI 로고 수정본.png">
-                </a>
+                </router-link>
+            </v-col>
+            <v-col cols="2">
+                <router-link to="/info">
+                    <div class="navItem">
+                        소개
+                    </div>
+                </router-link>
+            </v-col>
+            <v-col cols="2">
+                <router-link to="/info">
+                    <div class="navItem">
+                        공지
+                    </div>
+                </router-link>
+            </v-col>
+            <v-col cols="2">
+                <router-link to="/board">
+                    <div class="navItem">
+                        게시판
+                    </div>
+                </router-link>
+            </v-col>
+            <v-col cols="2">
+                <router-link to="/info">
+                    <div class="navItem">
+                        뉴스
+                    </div>
+                </router-link>
+            </v-col>
+
+            <v-col cols="2">
+                <router-link to="/user">
+                    <v-btn class="blue white--text navButton">
+                        내 정보
+                    </v-btn>
+                </router-link>
+                <v-btn v-if="token()" class="blue white--text navButton" @click="logOut()">
+                    로그아웃
+                </v-btn>
+                <router-link v-if="!token()" to="/signIn">
+                    <v-btn class="blue white--text navButton">
+                        로그인
+                    </v-btn>
+                </router-link>
             </v-col>
         </v-row>
 

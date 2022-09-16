@@ -49,10 +49,11 @@ const getUserEmail=async(email)=>{
     return results;
 }
 
-const changePw = async(newPw,id)=>{
+const changePw = async(newPw,id,salt)=>{
     try{
         results = await models['user'].update({
             pw:newPw,
+            salt:salt
         },{
             where:{id:id}
         })

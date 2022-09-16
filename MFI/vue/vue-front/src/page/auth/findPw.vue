@@ -124,6 +124,7 @@ import Axios from 'axios'
                     console.log(res.data.data);
                     this.sending=true;
                     this.auth_key=res.data.data
+                    alert("이메일을 전송하였습니다. 인증번호를 확인해주세요.")
                     return;
                 })
             },
@@ -151,6 +152,7 @@ import Axios from 'axios'
                     }
                     console.log(res.data.data);
                     alert("성공");
+                    document.location.href ='/signIn'
                 })
             },
         },
