@@ -42,7 +42,7 @@ const checkDuplicateMail = async(req,res,next)=>{
 const checkExistenceUser=async(req,res,next)=>{
     let inputUser = req.body;
     try{
-        const getUserEmailResult = await anonymousService.getUserEmail(inputUser.email)
+        const getUserEmailResult = await anonymousService.getUserEmail(inputUser.email,inputUser.name)
         if(getUserEmailResult===null){
             console.log("Not Existence Email");
             res.send({message:"Not Existence Email"});

@@ -1,4 +1,3 @@
-const { salt } = require('../../lib/common/hashing');
 const {models, Op}= require('../../lib/db')
 // const db=require('../lib')
 // const models=db.models
@@ -35,12 +34,13 @@ const getUserId=async(id)=>{
     return results;
 }
 
-const getUserEmail=async(email)=>{
+const getUserEmail=async(email,name)=>{
     let results;
     try{
         results = await models['user'].findOne({
             where:{
-                email : email
+                email : email,
+                name:name,
             }
         })
     }catch(err){

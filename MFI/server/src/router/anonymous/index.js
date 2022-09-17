@@ -17,6 +17,9 @@ anonymousRouter.post('/findId',checkExistenceUser, anonymous.findId_mail);
 anonymousRouter.put('/changePw', anonymous.changePw); //비밀번호 수정
 anonymousRouter.post('/findPw',checkExistenceUser, anonymous.findPw_mail);
 
+// 회원삭제
+anonymousRouter.delete('/user', anonymous.findPw_mail);
+
 
 
 module.exports=anonymousRouter;
