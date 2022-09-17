@@ -8,11 +8,11 @@ require('dotenv').config();
 
 // 로그인
 const login = async(req, res) => {
-    const data=req.body;
-    const idData=await anonymousService.getUserId(data.id);
-    try{
+  try{
+      const data=req.body;
+      const idData=await anonymousService.getUserId(data.id);
       const decodePW = decryptionPassWord(data.pw,idData.salt);
-      if (idData===null){
+      if(idData===null){
         res.send ({data: 'idFailed'})
       }else {
           const pwData=idData.dataValues.pw
@@ -28,8 +28,8 @@ const login = async(req, res) => {
           }
       }
     }catch(err){
-      console.err(err);
-      res.send({message: 'idFailed'})
+      console.log(err);
+      res.send ({data: 'idFailed'})
     }
   }
 // 회원가입
@@ -93,7 +93,7 @@ const findPw_mail = async(req,res)=>{
 
 // 비밀번호 변경
 const changePw = async(req,res)=>{
-  const incodingPw = encryptionPassWord(req.new_pw);
+  const incodingPw = encryptionPassWord(req.body.new_pw);
   try{
     anonymousService.changePw(incodingPw,req.body.id,salt);
     res.send({data:"SUCCESS"})

@@ -15,6 +15,12 @@
         <v-row class="infoItem">
             닉네임: {{user.nickname}}
         </v-row>
+        <v-row class="infoItem">
+            <v-btn
+                class="blue white--text button">
+                    회원탈퇴
+            </v-btn>
+        </v-row>
     </v-container>
 
 </template>
