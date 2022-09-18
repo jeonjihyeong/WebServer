@@ -1,3 +1,5 @@
+// 워커스레드를 사용하기 위해 필요한 함수를 호출한다.
+
 const {
     Worker, isMainThread, parentPort, workerData
 } =require('worker_threads');

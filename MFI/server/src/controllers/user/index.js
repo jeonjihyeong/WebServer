@@ -1,5 +1,5 @@
 const {decodeToken} = require('../../lib/common/token');
-
+const {userService} = require('../../service')
 
 const info = async(req,res) =>{
     const userToken = req.headers.authorization;
@@ -13,6 +13,17 @@ const info = async(req,res) =>{
     }
 }
 
+const withDrawUser = async(req,res)=>{
+    const user = req.writeUser
+    try{
+        result = await userService.deleteUser(user.userIdx);
+        res.send({data: "SUCCESS"})
+    }catch(err){
+        console.log(err);
+        res.send({message: "ERROR_DELETE"})
+    }
+}
+
 module.exports = {
-    info,
+    info,withDrawUser
 }
