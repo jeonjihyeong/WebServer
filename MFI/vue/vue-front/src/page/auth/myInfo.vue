@@ -16,11 +16,65 @@
             닉네임: {{user.nickname}}
         </v-row>
         <v-row class="infoItem">
+            
+        </v-row>
+        <br><br>
+        <div id="app">
+  <v-app id="inspire">
+    <v-row justify="center">
+      <v-dialog
+        v-model="dialog"
+        persistent
+        max-width="600px"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="blue white--text button"
+            dark
+            v-bind="attrs"
+            v-on="on"
+          >
+            회원탈퇴
+          </v-btn>
+        </template>
+        <v-card>
+          <v-card-title>
+            <span class="text-h5">비밀번호 확인</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                    label="비밀번호 입력"
+                    required
+                  ></v-text-field>
+                </v-col>
+                <middle>회원탈퇴를 하기위해서 비밀번호를 입력하시오</middle>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
             <v-btn
-                class="blue white--text button">
+              color="blue darken-1"
+              text
+              @click="dialog = false"
+            >
+              닫기
+            </v-btn>
+            <v-btn
+                color="blue darken-1"
+                text
+                v-on:click="deleteUser()">
                     회원탈퇴
             </v-btn>
-        </v-row>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+  </v-app>
+</div>
     </v-container>
 
 </template>
@@ -30,7 +84,8 @@
     export default {
         data() {
             return {
-                user: {}
+                user: {},
+                dialog:false
             }
         },
         async created () {
@@ -48,6 +103,22 @@
                 }
                 this.user = res.data.data
             })
+        },
+        methods: {
+            deleteUser () {
+                let token = localStorage.getItem("accessToken");
+                Axios.delete("http://localhost:3000/user",{
+                    headers:{
+                        authorization:token
+                    }
+                }).then((res)=>{
+                    if('message' in res.data){
+                        console.log("실패");
+                        return;
+                    }
+                    console.log("성공")
+                })
+            }
         },
     }
 </script>
