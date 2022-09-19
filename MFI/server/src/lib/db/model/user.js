@@ -7,7 +7,8 @@ const create = async (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            onDelete: 'CASCADE',
         },
         id: {
             type: DataTypes.STRING

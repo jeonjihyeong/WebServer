@@ -7,13 +7,14 @@ const create = async (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            onDelete: 'CASCADE',
         },
         boardIdx: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'board',
-                key: 'board1Idx',
+                key: 'boardIdx',
             }
         },
         userIdx: {
@@ -39,7 +40,7 @@ const create = async (sequelize) => {
     commentTable.associate = function (models) {
         commentTable.belongsTo(models.user, {
             foreignKey: 'userIdx',
-            onDelete: 'CASCADE'
+            onDelete: "CASCADE"
         });
         commentTable.belongsTo(models.board,{ 
             foreignKey: 'boardIdx',
