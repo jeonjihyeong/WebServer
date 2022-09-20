@@ -6,5 +6,6 @@ const {user}= require('../../controllers')
 userRouter.get('/', user.info);
 
 // 회원삭제
-userRouter.delete('/', user.withDrawUser);
+userRouter.post('/', user.withDrawUser);
+
 module.exports = userRouter;

@@ -4,6 +4,7 @@ const {signToken}=require('../../lib/common/token')
 const mailSender = require('../../lib/common/mailer')
 const {salt,encryptionPassWord,decryptionPassWord} =require('../../lib/common/hashing')
 const {signUpMail,auth_key, findIdMail,findPwMail} =require('../../config/setMail')
+const { randomString } = require('../../lib/common/numberGenerator')
 require('dotenv').config();
 
 // 로그인
@@ -54,9 +55,10 @@ const signup = async(req,res)=>{
 // 회원가입 인증 메일
 const signUp_mail = async(req,res)=>{
   const mail_data = req.body.email;
+  const signUpText = signUpMail()
   console.log(auth_key)
   try{
-    mailSender.sendGmail(signUpMail, mail_data)
+    mailSender.sendGmail(signUpText, mail_data)
     res.send({data:auth_key})
   }catch(err){
     console.log(err);
