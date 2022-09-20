@@ -45,6 +45,7 @@ const getUserEmail=async(email,name)=>{
         })
     }catch(err){
         console.log(err)
+        return null
     }
     return results;
 }

@@ -1,15 +1,10 @@
-import getBoard from "@/api/board/boardApi"
+import Vue from "vue"
+import Vuex from "vuex"
 
-const getBoardList=async()=>{
-    try{
-        const result = await getBoard();
-        console.log(result);
-        console.log("store");
-        return result;
-    }catch(err){
-        console.log(err);
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+    modules:{
+        auth,board,user
     }
-}
-
-
-export default getBoardList;
+})

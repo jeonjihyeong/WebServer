@@ -47,6 +47,7 @@
                 <v-col cols="12">
                   <v-text-field
                     label="비밀번호 입력"
+                    v-model = "pw"
                     required
                   ></v-text-field>
                 </v-col>
@@ -75,6 +76,7 @@
     </v-row>
   </v-app>
 </div>
+ 
     </v-container>
 
 </template>
@@ -85,7 +87,9 @@
         data() {
             return {
                 user: {},
-                dialog:false
+                dialog:false,
+                pw:'',
+                pw_check:Boolean
             }
         },
         async created () {
@@ -105,18 +109,50 @@
             })
         },
         methods: {
-            deleteUser () {
+            checkPw (){
+              let token = localStorage.getItem("accessToken");
+              Axios.post("http://localhost:3000/user/checkPw",{
+                pw:this.pw
+              },{
+                  headers:{
+                    authorization:token
+                  }
+              }).then((res)=>{
+                console.log(res.data.data)
+                if(res.data.data==="Success"){
+                  this.pw_check = true
+                  return
+              }
+            })
+            },
+            async deleteUser () {
+              
                 let token = localStorage.getItem("accessToken");
-                Axios.delete("http://localhost:3000/user",{
-                    headers:{
-                        authorization:token
-                    }
-                }).then((res)=>{
+                Axios.post("http://localhost:3000/user",{
+                pw:this.pw
+              },{
+                  headers:{
+                    authorization:token
+                  }
+              }).then((res)=>{
                     if('message' in res.data){
-                        console.log("실패");
+                        if(res.data.message==="NOT_CORRECT_PW"){
+                          alert("비밀번호가 틀렸습니다.")
+                          return;
+                        }
+                        if(res.data.message==="ERROR_DELETE"){
+                          alert("비밀번호를 삭제하지 못했습니다.")
+                          return;
+                        }
                         return;
                     }
-                    console.log("성공")
+                    alert("성공");
+                    localStorage.removeItem("accessToken");
+                    location.href = '/';
+                    return;
+                }).catch((err)=>{
+                  console.error(err);
+                  return;
                 })
             }
         },
