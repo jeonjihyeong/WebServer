@@ -16,8 +16,11 @@
             닉네임: {{user.nickname}}
         </v-row>
         <v-row class="infoItem">
-            
+            <v-col>
+              내가 쓴 글
+            </v-col>
         </v-row>
+        <BoardList></BoardList>
         <br><br>
         <div id="app">
   <v-app id="inspire">
