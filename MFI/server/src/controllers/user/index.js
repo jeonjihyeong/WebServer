@@ -1,6 +1,6 @@
 const {decodeToken} = require('../../lib/common/token');
-const {userService, anonymousService} = require('../../service')
 const {decryptionPassWord} = require('../../lib/common/hashing')
+const {userService, anonymousService} = require('../../service')
 const info = async(req,res) =>{
     const userToken = req.headers.authorization;
     try{

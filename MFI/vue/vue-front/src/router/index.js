@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import mainHome from '../page/main/mainHome'
-import signIn from '../page/auth/signIn'
-import signUp from '../page/auth/signUp'
-import allBoard from '../page/board/allBoard'
-import oneBoard from '../page/board/oneBoard'
-import myInfo from '@/page/auth/myInfo.vue'
-import writeBoard from '@/page/board/writeBoard.vue'
-import updateBoard from '@/page/board/updateBoard.vue'
-import findId from "@/page/auth/findId"
-import findPw from "@/page/auth/findPw"
+import mainHome from '../view/main/mainHome'
+import signIn from '../view/auth/signIn'
+import signUp from '../view/auth/signUp'
+import allBoard from '../view/board/allBoard'
+import oneBoard from '../view/board/oneBoard'
+import myInfo from '@/view/auth/myInfo.vue'
+import writeBoard from '@/view/board/writeBoard.vue'
+import updateBoard from '@/view/board/updateBoard.vue'
+import findId from "@/view/auth/findId"
+import findPw from "@/view/auth/findPw"
 
 
 Vue.use(VueRouter);
