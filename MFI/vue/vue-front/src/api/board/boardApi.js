@@ -2,7 +2,7 @@ import Axios from 'axios'
 
 
 const getBoard=async()=>{
-    let token = localStorage.getItem("accessToken")
+    const token = localStorage.getItem("accessToken")
     await Axios.get("http://localhost:3000/board",{
         headers:{
             authorization: token,
