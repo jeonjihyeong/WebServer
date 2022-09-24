@@ -35,6 +35,7 @@
 
 <script>
 import Axios from "axios"
+import { mapState } from "vuex";
     export default {
         
         name:"signIn",
@@ -72,6 +73,13 @@ import Axios from "axios"
                     console.log(err)
                 })
             }
+        },
+        computed: {
+            name() {
+                return this.data 
+            },
+            ...mapState({
+            })
         },
     }
 
