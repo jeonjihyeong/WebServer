@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MainPage from '@/page/main/mainPage.vue';
+import MainPage from '@/view/main/mainPage.vue';
 
 export default {
   name: 'App',
