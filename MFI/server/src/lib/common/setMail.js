@@ -1,4 +1,4 @@
-const {randomString} = require("../lib/common/numberGenerator")
+const {randomString} = require("./numberGenerator")
 
 const signUpMail =()=> {
   const auth_key = randomString()
@@ -6,7 +6,7 @@ const signUpMail =()=> {
     subject: "로그인 인증", 
     html: `<p>${auth_key}</p>`
   }
-  return mailText
+  return {mailText,auth_key}
 };
 
 const findIdMail=(name,id) => {
@@ -25,7 +25,7 @@ const findPwMail=(name) => {
     html: `<div>${name} 회원님 비밀번호 찾기 결과입니다.</div>
           <p>${auth_key}</p>`
   }
-  return mailText;
+  return {mailText,auth_key};
 }
 
 

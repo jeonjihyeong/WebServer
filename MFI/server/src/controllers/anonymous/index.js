@@ -3,8 +3,7 @@ const {anonymousService} =require('../../service')
 const {signToken}=require('../../lib/common/token')
 const mailSender = require('../../lib/common/mailer')
 const {salt,encryptionPassWord,decryptionPassWord} =require('../../lib/common/hashing')
-const {signUpMail,auth_key, findIdMail,findPwMail} =require('../../config/setMail')
-const { randomString } = require('../../lib/common/numberGenerator')
+const {signUpMail,auth_key, findIdMail,findPwMail} =require('../../lib/common/setMail')
 require('dotenv').config();
 
 // 로그인
@@ -56,10 +55,9 @@ const signup = async(req,res)=>{
 const signUp_mail = async(req,res)=>{
   const mail_data = req.body.email;
   const signUpText = signUpMail()
-  console.log(auth_key)
   try{
-    mailSender.sendGmail(signUpText, mail_data)
-    res.send({data:auth_key})
+    mailSender.sendGmail(signUpText.mailText, mail_data)
+    res.send({data:signUpText.auth_key})
   }catch(err){
     console.log(err);
     res.send({message:"FAIL_SEND_EMAIL"})
@@ -85,8 +83,8 @@ const findPw_mail = async(req,res)=>{
   const setFIndPwMail = findPwMail(req.body.name)
   console.log(auth_key)
   try{
-    mailSender.sendGmail(setFIndPwMail, mail_data)
-    res.send({data:auth_key})
+    mailSender.sendGmail(setFIndPwMail.mailText, mail_data)
+    res.send({data:setFIndPwMail.auth_key})
   }catch(err){
     console.log(err);
     res.send({message:"FAIL_SEND_EMAIL"})
