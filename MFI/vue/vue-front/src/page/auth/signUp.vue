@@ -106,7 +106,7 @@ import Axios from 'axios';
                         alert("아이디가 이미 존재합니다.")
                     }else{
                         alert("회원가입에 성공하였습니다.")
-                        document.location.href = '/'
+                        document.location.href = '/signIn'
                     }
                     }).catch((err)=>{
                         console.log(err);
@@ -134,7 +134,7 @@ import Axios from 'axios';
                     alert('이메일을 전송하였습니다.')
                     this.show1=true;
                     this.auth_key=res.data.data;
-                    
+                    console.log(res.data.data)
                 }).catch((err)=>{
                     console.log(err);
                 })
