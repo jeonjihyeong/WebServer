@@ -20,5 +20,5 @@ app.get('/audio',(request,response)=>{
 });
 // 서버를 실행한다.
 app.listen(52273,()=>{
-    console.log('Server running at http:://127.0.0.1:52273/page/273');
+    console.log('Server running at http:://127.0.0.1:52273');
 })
