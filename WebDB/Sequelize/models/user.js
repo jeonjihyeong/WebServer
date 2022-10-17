@@ -19,6 +19,7 @@ module.exports = class User extends Sequelize.Model {
       comment: {
         type: Sequelize.TEXT,
         allowNull: true,
+        defaultValue: '',
       },
       created_at: {
         type: Sequelize.DATE,
