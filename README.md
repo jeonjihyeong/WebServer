@@ -5,5 +5,7 @@
 
 <div>
   서버: node.js express
+ </div>
+<div>
   프론트: html, css, react.js, styled-Component, vue.js, vuetify
  </div>
