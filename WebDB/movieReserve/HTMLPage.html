@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Node.js Programming for Modern Web</title>
+    <style>
+        .line{
+            overflow:hidden;
+        }
+        .seat{
+            margin: 2px;
+            float:left;
+            width:30px;
+            height:30px;
+            border-radius:3px;
+        }
+
+        .enable{
+            background:gray;
+        }
+        .enable:hover{
+            background:black;
+        }
+        .disable{
+            background: red;
+        }
+        .disable:hover{
+            background: black;
+        }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io.connect();
+
+            socket.on('reserve',(data)=>{
+                const $target = $('div[data-x = '+data.x+'][data-y = '+data.y+']');
+                $target.removeClass('enable');
+                $target.addClass('disable');
+            })
+            socket.on('cancle',(data)=>{
+                const $target = $('div[data-x = '+data.x+'][data-y = '+data.y+']');
+                $target.removeClass('disable');
+                $target.addClass('enable');
+            })
+        </script>
+        <script>
+            $(document).ready(()=>{
+                const onClickSeat = function(){
+                    const x = $(this).attr('data-x');
+                    const y = $(this).attr('data-y');
+                    if(confirm('좌석을 예약하시겠습니까?')){
+                        $(this).off('click');
+                        socket.emit('reserve',{
+                            x:x,
+                            y:y
+                        })
+                    }else{
+                        alert('취소되었습니다.');
+                    }
+                }
+                const onClickSeatReserved =()=>{
+                    const x = $(this).attr('data-x');
+                    const y = $(this).attr('data-y');
+                    if(confirm('좌석을 취소하시겠습니까?')){
+                        $(this).off('tic');
+                        socket.emit('cancle',{
+                            x:x,
+                            y:y
+                        })
+                    }else{
+                        alert('취소되었습니다.')
+                    }
+                }
+                $.getJSON('/seats',{dummy:new Date().getTime()},(data)=>{
+                    $.each(data,(indexY,line)=>{
+                        const $line = $('<div></div>').addClass('line');
+                        $.each(line,(indexX,seat)=>{
+                            const $output = $('<div></div>',{
+                                'class':'seat',
+                                'data-x':indexX,
+                                'data-y':indexY
+                            }).appendTo($line);
+                            if(seat ==1){
+                                $output.addClass('enable').on('click',onClickSeat);
+                            }else if (seat ==2){
+                                $output.addClass('disable').on('tic',onClickSeatReserved);
+                            }
+                        })
+                        $line.appendTo('body');
+                    })
+                })
+            })
+        </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
