@@ -48,29 +48,34 @@
                 const onClickSeat = function(){
                     const x = $(this).attr('data-x');
                     const y = $(this).attr('data-y');
+                    console.log(x)
+                    console.log(y)
                     if(confirm('좌석을 예약하시겠습니까?')){
-                        $(this).off('click');
                         socket.emit('reserve',{
                             x:x,
                             y:y
                         })
+                        location.href = location.href;
                     }else{
                         alert('취소되었습니다.');
                     }
                 }
-                const onClickSeatReserved =()=>{
+                const onClickSeatReserved = function(){
                     const x = $(this).attr('data-x');
                     const y = $(this).attr('data-y');
+                    console.log(x)
+                    console.log(y)
                     if(confirm('좌석을 취소하시겠습니까?')){
-                        $(this).off('tic');
                         socket.emit('cancle',{
                             x:x,
                             y:y
                         })
+                        location.href = location.href;
                     }else{
-                        alert('취소되었습니다.')
+                        alert('취소되었습니다.');
                     }
                 }
+                
                 $.getJSON('/seats',{dummy:new Date().getTime()},(data)=>{
                     $.each(data,(indexY,line)=>{
                         const $line = $('<div></div>').addClass('line');
@@ -83,7 +88,7 @@
                             if(seat ==1){
                                 $output.addClass('enable').on('click',onClickSeat);
                             }else if (seat ==2){
-                                $output.addClass('disable').on('tic',onClickSeatReserved);
+                                $output.addClass('disable').on('click',onClickSeatReserved);
                             }
                         })
                         $line.appendTo('body');
