@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http');
 const fs = require('fs');
 
-const seats = [
+var seats = [
     [1,1,0,1,1,0,0,0,0,1,1,0,1,1],
     [1,1,0,1,1,1,1,1,1,1,1,0,1,1],
     [1,1,0,1,1,1,1,1,1,1,1,0,1,1],
@@ -46,7 +46,7 @@ io.sockets.on('connection',(socket)=>{
     })
     socket.on('cancle',(data)=>{
         console.log("socket on!")
-        seats[data.y][data.x]=1;
+        seats[data.y][data.x] = 1;
         io.sockets.emit('cancle',data)
     })
 })
