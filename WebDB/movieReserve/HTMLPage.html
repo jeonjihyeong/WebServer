@@ -53,7 +53,8 @@
                     if(confirm('좌석을 예약하시겠습니까?')){
                         socket.emit('reserve',{
                             x:x,
-                            y:y
+                            y:y,
+                            index:location.pathname
                         })
                         location.href = location.href;
                     }else{
@@ -68,7 +69,8 @@
                     if(confirm('좌석을 취소하시겠습니까?')){
                         socket.emit('cancle',{
                             x:x,
-                            y:y
+                            y:y,
+                            index:location.pathname
                         })
                         location.href = location.href;
                     }else{
@@ -76,7 +78,7 @@
                     }
                 }
                 
-                $.getJSON('/seats',{dummy:new Date().getTime()},(data)=>{
+                $.getJSON(`/seats${location.pathname}`,(data)=>{
                     $.each(data,(indexY,line)=>{
                         const $line = $('<div></div>').addClass('line');
                         $.each(line,(indexX,seat)=>{
@@ -102,5 +104,29 @@
     <title>Document</title>
 </head>
 <body>
+    <button>
+        <a href="/0">
+        2022.11.06
+        </a>
+    </button>
+    <button>
+        <a href="/1">
+            2022.11.06
+        </a>
+    </button>
+    <button>
+        <a href="/2">
+            2022.11.06
+        </a>
+    </button>
+    <button>
+    <a href="/3">
+        2022.11.06
+    </a></button>
+    <button>
+    <a href="/4">
+        2022.11.06
+    </a>
+    </button>
 </body>
 </html>
