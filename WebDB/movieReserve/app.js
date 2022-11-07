@@ -84,6 +84,11 @@ var seats = [
 const app = express();
 const server = http.createServer(app);
 
+app.get('/',(req,res,next)=>{
+    fs.readFile('HTMLPAGE.html',(err,data)=>{
+        res.send(data.toString());
+    })
+})
 app.get('/:num',(req,res,next)=>{
     fs.readFile('HTMLPAGE.html',(err,data)=>{
         res.send(data.toString());
