@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .loginTitle{
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 150px;
+        }
+        .loginLayout{
+            text-align: center;
+        }
+        .inputForm{
+            height: 20px;
+            margin-bottom: 10px;
+        }
+        .button{
+            width: 170px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loginLayout">
+        <div class="loginTitle">
+            회원가입
+        </div>
+        <div>
+            <input placeholder="아이디" class="inputForm" id="id">
+        </div>
+        <div>
+            <input placeholder="비밀번호" class="inputForm" id="pw">
+        </div>
+        <div><button class="button" onclick="loginEvent()">로그인</button></div>
+    </div>
+</body>
+</html>
