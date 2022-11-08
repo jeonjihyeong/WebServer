@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+
+        html,body,#map{
+            height:100%
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        $(document).ready(function(){
+            function setMarker(latitude,longitude){
+                var marker = new google.maps.Marker({
+                    position: new google.maps.Lating(latitude,longitude),
+                    map:map
+                })
+            }
+
+            var name = prompt('이름을 입력하세요', '이름');
+            var socket = io.connect();
+
+            socket.emit('join',name);
+
+            var temp = document.getElementById('map');
+            var map = new google.maps.Map(temp,{
+                zoom:6,
+                center: new google.maps.Lating(37,126),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            // 초기위치를 설정
+            // $.getJSON('/ShowData',{name:name},function(data){
+            //     $.each(data,function(index,item){
+            //         setMarker(item.latitude, item.longitude);
+            //     })
+            // })
+//          소켓이벤트를 연결
+            // socket.on('receive',function(data){
+            //     setMarker(data.latitude,data.longitude)
+            // })
+            var array=[
+
+        {
+            "name":"test",
+            "latitude":37.55824765026366,
+            "longitude":126.82509847539825
+        },
+        {
+            "name":"test",
+            "latitude":37.55825014374689,
+            "longitude":126.82509928289858
+        },
+        {
+            "name":"test",
+            "latitude":37.558249997901925,
+            "longitude":126.8251007507675
+        },
+        {
+            "name":"test",
+            "latitude":37.55824765026366,
+            "longitude":126.82509847539825
+        },
+        {
+            "name":"test",
+            "latitude":37.55834679695781,
+            "longitude":126.825188787667
+        },
+        {
+            "name":"test",
+            "latitude":37.558378912456966,
+            "longitude":126.82521832023501
+        },
+        {
+            "name":"test",
+            "latitude":37.5583787904841,
+            "longitude":126.82521930739324
+        },
+        {
+            "name":"test",
+            "latitude":37.5582824349956,
+            "longitude":126.82512916058889
+        },
+        {
+            "name":"test",
+            "latitude":37.55828201090124,
+            "longitude":126.82513318412546
+        },
+        {
+            "name":"test",
+            "latitude":37.55819911886881,
+            "longitude":126.82507176149541
+        },
+        {
+            "name":"test",
+            "latitude":37.55812164386792,
+            "longitude":126.82504008987239
+        },
+        {
+            "name":"test",
+            "latitude":37.55825681311021,
+            "longitude":126.82506640807775
+        },
+        {
+            "name":"test",
+            "latitude":37.55833440251313,
+            "longitude":126.82492115485917
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.558114738730225,
+            "longitude":126.82525932183464
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.558251563023816,
+            "longitude":126.82508764215777
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.558114738730225,
+            "longitude":126.82525932183464
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.55809126812427,
+            "longitude":126.82534085547725
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.55810401887691,
+            "longitude":126.82537261545218
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.5580117990374,
+            "longitude":126.8253943143314
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.55793659694566,
+            "longitude":126.82535584779869
+        },
+        {
+            "name":"rintiantta",
+            "latitude":37.55779231636719,
+            "longitude":126.82533727017837
+        },
+        
+            ];
+            array.forEach(function(data){
+                setMarker(data.latitude, data.longitude)
+            })
+
+        })
+    </script>
+    <title>Document</title>
+</head>
+<body>
+<div id="map">
+
+</div>    
+</body>
+</html>
