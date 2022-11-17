@@ -4,7 +4,7 @@
 </h1>
 <div>
   공부 기록을 기록하는 레포지토리
- <
+ 
 <div>
   서버: node.js express
  </div>
