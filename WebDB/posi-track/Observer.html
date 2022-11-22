@@ -21,7 +21,7 @@
         $(document).ready(function(){
             function setMarker(latitude,longitude){
                 var marker = new google.maps.Marker({
-                    position: new google.maps.Lating(latitude,longitude),
+                    position: new google.maps.LatLng(latitude,longitude),
                     map:map
                 })
             }
@@ -34,7 +34,7 @@
             var temp = document.getElementById('map');
             var map = new google.maps.Map(temp,{
                 zoom:6,
-                center: new google.maps.Lating(37,126),
+                center: new google.maps.LatLng(37,126),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
