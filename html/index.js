@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+const sequelize = require('sequelize')
 
 const info = {
   "first":{
@@ -9,7 +9,6 @@ const info = {
   "second":{
       "id":"bbbb",
       "pw":"bbbb"}
-
 }
 app.get('/', function (req, res) {
   res.send("")
