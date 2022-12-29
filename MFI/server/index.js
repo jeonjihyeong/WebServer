@@ -10,6 +10,23 @@ app.use(bodyParser.json())
 app.use(cors());
 app.use(router.basicRouter);
 
+// app.post('/login',async(req,res)=>{
+//     const {id,pw}=req.body;
+    
+//     let result;
+//     try{
+//         result = await models['user'].findOne({
+//             where:{
+//                 id : id
+//             }
+//         })
+//     }catch(err){
+//         console.log(err)
+//     }
+
+//     console.log(result)
+// })
+
 app.listen(port, async () => {
   console.log(`Example app listening on port ${port}`)
   await db.initialize()
