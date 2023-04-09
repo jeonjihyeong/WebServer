@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상대 배치, relative</title>
+    <style>
+        div{
+            display:inline-block;
+            border-radius: 100%;
+            margin-left: 5px;
+            font-size: 15px;
+            color: white;
+            width: 50px;
+            height: 50px;
+            vertical-align: center;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 50px;
+            border: 3px solid black;
+        }
+        #down{
+            position:relative;
+            top:10px;
+        }
+        #up{
+            position:relative;
+            bottom:10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>무지개색 요일</h3>
+    <hr><br>
+        <div style="background-color: red;"id="up">월</div>
+        <div style="background-color: orange;">화</div>
+        <div style="background-color: yellow;"id="up">수</div>
+        <div style="background-color: green;">목</div>
+        <div style="background-color: skyblue;"id="up">금</div>
+        <div style="background-color: blue">토</div>
+        <div style="background-color: purple"id="up">일</div>
+</body>
+</html>
