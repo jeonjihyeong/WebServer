@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        html body{height:100%;}
         header{
             margin-bottom: 5px;
             text-align: center;
@@ -17,19 +16,19 @@
         nav{
             margin-bottom: 5px;
             text-align: center;
-            line-height: 50px;
-            height: 50px;
+            line-height: auto;
+            height: auto;
             background-color:bisque;
             border-radius: 7px;
         }
         section{
             margin-bottom: 5px;
-            height: 500px;
+            display: inline-flex;
+            height: 800px;
         }
         article{
             text-align: center;
-            line-height: 500px;
-            display: inline-block;
+            line-height: auto;
             height: 100%;
             width: 79%;
             background-color: greenyellow;
@@ -37,8 +36,7 @@
         }
         aside{
             text-align: center;
-            line-height: 500px;
-            display: inline-block;
+            line-height: auto;
             height: 100%;
             width: 20%;
             background-color: rgb(255, 115, 232);
@@ -47,7 +45,7 @@
         footer{
             text-align: center;
             line-height: 50px;
-            height: 50px;
+            height: auto;
             background-color: rgb(125, 255, 255);
             border-radius: 7px;
         }
@@ -56,19 +54,54 @@
 </head>
 <body>
     <header>
-        <
-        header
-        >
+        개발자의 직무
     </header>
     <nav>
-        <
-        nav
-        >
+        최근 개발자로 취업할려고 하는 인원이 늘어나면서 개발자에 대한 열풍이 커지고 있다. <br>
+        이러한 시점에서 개발자로 취업을 희망하는 사람들은 다양한 직무 중에서 선택을 하여야 하는데 그를 알아보고자 한다.<br>
+        그 중에서도 크게 개발자의 직무는 프론트엔드, 백엔드, 앱으로 나누어 진다. 이에 대한 상세내용은 아래와 같다.
     </nav>
     <section>
-        <aside>< aside ></aside>
-        <article>< article ></article>
+        <aside>
+            <strong>목차</strong>
+            <ul>
+                <li><a href="#frontEnd">프론트엔드 개발자</a></li>
+                <li><a href="#backEnd">백엔드 개발자</a></li>
+                <li><a href="#App">앱 개발자</a></li>
+            </ul></aside>
+        <article>
+            <h3 id="frontEnd"><a href="https://seunghyun90.tistory.com/77" target="_blank">프론트 엔드</a></h3>
+            <strong>사전적 수행 직무</strong><br>
+            백엔드(Back-End) API (Application Programming Interface)에서 가져온 데이터의 출력, 입력을 통한 비지니스 로직 구성과 유저가 사용하는 유저 인터페이스를 개발한다.
+            <br><br>
+            <strong>실무에서의 직무</strong><br>
+            백엔드 개발자가 건네주는 API 문서 혹은 API 정보를 공유 받아 서버에서 제공해주는 데이터를 가져와서 화면에 나타나게 해주는 것이 기본이며, 서비스를 사용하는 흐름에 따라 데이터를 가공하거나 선별하여 해당 단계에서 필요한 데이터만 유저가 볼 수 있도록 한다.<br>
+
+            여기서 프레임 워크는 개발할 때 활용되는 개발, 실행, 테스트, 운영 환경 등을 도와주는 소프트웨어를 의미한다. 
+
+            <h3 id="backEnd"><a href="https://terms.naver.com/entry.naver?docId=3473496&cid=58439&categoryId=58439" target="_blank">백엔드 개발자</a></h3>
+            <strong>API 개발</strong><br>
+            백엔드 개발자는 API 서버에서 클라이언트의 요청에 응답할 수 있도록 API를 개발한다. <br>
+            IT회사에서 웹이나 앱을 통해 새로운 기능을 추가할 때 그러한 기능을 수행 할 수 있는 API를 백엔드 개발자가 개발자가 개발한다. <br>
+            예를 들면 로그인, 회원가입, 결제 등의 기능이 있다.<br>
+            <strong>데이터베이스 관리</strong><br>
+            백엔드 개발자는 서버에서 유저, 상품, 결제 등의 데이터가 담겨있는 데이터 베이스를 관리합니다. <br>
+            서버에서 데이터 베이스를 좀 더 효율적이고 안전하게 사용할 수 있도록 회사의 데이터베이스를 계속 수정학고 확장해 나가는 역할을 담당하고 있습니다.<br>
+            <strong>서버, 클라우드 관리</strong><br>
+            백엔드 개발자는 웹서버와 API 서버, 데이터 베이스 서버와 같은 서버를 관리합니다.<br>
+            백엔드 개발자들은 다양한 서버를 구축하고 그 서버들을 좀 더 효율적으로 처리하기 위한 분산 처리 서버와 같이 다양한 방법을 통해 서버를 관리합니다.<br>
+
+            <h3 id="App"><a href="https://terms.naver.com/entry.naver?docId=3578268&cid=58886&categoryId=58886" target="_blank">앱</a></h3>
+            모바일 앱 개발자는 스마트폰에서 사용이 가능하도록 프로그램을 개발하고 오류를 수정하고 업데이트 하는 업무를 수행합니다.<br>
+            또한 OS에 따라 크게 두종류로 나뉩니다.<br>
+            <strong>ios개발자</strong><br>
+            ios 개발자는 주로 swift를 사용하여 개발하며 크로스 플랫폼 개발이 가능한 flutter나 react native 를 사용하기도 합니다.<br>
+            <strong>안드로이드 개발자</strong><br>
+            안드로이드 개발자는 주로 JAVA나 Kotlin을 사용하여 개발하며 크로스 플랫폼 개발이 가능한 flutter나 react native 를 사용하기도 합니다.<br>
+        </article>
     </section>
-    <footer>< footer ></footer>
+    <footer>
+        <img src="https://images.velog.io/images/corepen_/post/cd5adaa5-cd7f-437a-a190-e8c4dca1c426/_2021-04-28_11-04-19.png">
+    </footer>
 </body>
 </html>
