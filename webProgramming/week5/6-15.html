@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>if-else를 이용한 학점 매기기</h3>
+    <hr>
+    <script>
+        let grade1;
+        let grade2;
+        let score1 = prompt("황기태 님 점수를 입력하세요", 100)
+        let score2 = prompt("황기태 님 점수를 입력하세요", 100)
+        score1 = parseInt(score1)
+        score2 = parseInt(score2)
+        if(score1>=90)
+            grade1="A";
+        else if(score1>=80)
+            grade1="B"
+        else if(score1>=70)
+            grade1="C"
+        else if(score1>=60)
+            grade1="D"
+        else
+            grade1="F"
+
+        if(score2>=90)
+            grade2="A";
+        else if(score2>=80)
+            grade2="B"
+        else if(score2>=70)
+            grade2="C"
+        else if(score2>=60)
+            grade2="D"
+        else
+            grade1="F"
+        document.write(score1 +"는" + grade1+ "입니다.<br>")
+        document.write(score2 +"는" + grade2+ "입니다.<br>")
+        document.write("두사람의 평균은"+ (score1+score2)/2 + "입니다.<br>")
+    </script>
+</body>
+</html>

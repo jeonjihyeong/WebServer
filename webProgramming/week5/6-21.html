@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>  
+<head>  
+    <meta charset="utf-8">  
+    <title>continue문</title>  
+</head>  
+<body>  
+    <h3>3으로나눈나머지가1인수만더하기</h3>  
+    <hr>  
+    <script>
+        let sum=0;
+        for(let i=1;i<=10;i++){
+            if(i%3!=1)
+                continue;
+            document.write(i+" ");
+            sum+=i;
+        }  document.write("합은"+sum);
+    </script>
+    </body>
+        </html>
